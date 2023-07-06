@@ -9,7 +9,8 @@
 /*   Updated: 2023/05/03 10:17:53 by msamilog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-size_t	ft_strlen(const char *s);
+
+#include "libft.h"
 
 size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize)
 {

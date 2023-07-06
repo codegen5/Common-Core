@@ -1,25 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strchr.c                                        :+:      :+:    :+:   */
+/*   ft_memmove.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: msamilog <tahasamiloglu@gmail.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/16 17:26:48 by msamilog          #+#    #+#             */
-/*   Updated: 2023/05/16 17:26:48 by msamilog         ###   ########.fr       */
+/*   Created: 2023/07/03 16:01:29 by msamilog          #+#    #+#             */
+/*   Updated: 2023/07/03 16:01:29 by msamilog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strchr(const char *s, int c)
+void	*ft_memmove(void *dst, const void *src, size_t len)
 {
-	unsigned char	val;
+	char		*d;
+	const char	*s;
 
-	val = c;
-	while (*s && val != *s)
-		s++;
-	if (val == *s)
-		return ((char *)s);
-	return (0);
+	if (!dst && !src)
+		return (0);
+	d = dst;
+	s = src;
+	if (s < d && s + len > d)
+	{
+		s += len;
+		d += len;
+		while (len--)
+			*--d = *--s;
+	}
+	else
+	{
+		while (len--)
+			*d++ = *s++;
+	}
+	return (dst);
 }

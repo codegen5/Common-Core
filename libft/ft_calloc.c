@@ -1,25 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strchr.c                                        :+:      :+:    :+:   */
+/*   ft_calloc.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: msamilog <tahasamiloglu@gmail.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/16 17:26:48 by msamilog          #+#    #+#             */
-/*   Updated: 2023/05/16 17:26:48 by msamilog         ###   ########.fr       */
+/*   Created: 2023/07/04 13:52:47 by msamilog          #+#    #+#             */
+/*   Updated: 2023/07/04 13:52:47 by msamilog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strchr(const char *s, int c)
+void	*ft_calloc(size_t count, size_t size)
 {
-	unsigned char	val;
+	void	*p;
+	size_t	total;
 
-	val = c;
-	while (*s && val != *s)
-		s++;
-	if (val == *s)
-		return ((char *)s);
-	return (0);
+	total = count * size;
+	if (count == 0 || size == 0)
+		return (NULL);
+	p = malloc(total);
+	if (p == NULL)
+		return (NULL);
+	ft_bzero(p, total);
+	return (p);
 }
