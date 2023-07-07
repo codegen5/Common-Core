@@ -1,4 +1,4 @@
-SRC			= ft_atoi ft_isalnum ft_isdigit ft_memcmp ft_memset	ft_strlcat ft_strncmp ft_tolower ft_bzero ft_isalpha ft_isprint ft_memcpy ft_strchr ft_strlcpy ft_strnstr ft_toupper ft_calloc ft_isascii ft_memchr ft_memmove ft_strdup ft_strlen ft_strrchr
+SRC			= ft_atoi ft_isalnum ft_isdigit ft_memcmp ft_memset	ft_strlcat ft_strncmp ft_tolower ft_bzero ft_isalpha ft_isprint ft_memcpy ft_strchr ft_strlcpy ft_strnstr ft_toupper ft_calloc ft_isascii ft_memchr ft_memmove ft_strdup ft_strlen ft_strrchr ft_substr ft_split
 
 SRCS		= $(addsuffix .c, ${SRC})
 
