@@ -19,7 +19,10 @@ void	*ft_calloc(size_t count, size_t size)
 
 	total = count * size;
 	if (count == 0 || size == 0)
-		return (NULL);
+	{
+		p = malloc(sizeof(char));
+		return (p);
+	}
 	p = malloc(total);
 	if (p == NULL)
 		return (NULL);

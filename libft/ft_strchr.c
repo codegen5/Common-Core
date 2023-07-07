@@ -21,5 +21,5 @@ char	*ft_strchr(const char *s, int c)
 		s++;
 	if (val == *s)
 		return ((char *)s);
-	return (0);
+	return (NULL);
 }
