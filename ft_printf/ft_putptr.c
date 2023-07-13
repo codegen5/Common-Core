@@ -1,39 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
+/*   ft_putptr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: msamilog <tahasamiloglu@gmail.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/07/09 18:58:38 by msamilog          #+#    #+#             */
-/*   Updated: 2023/07/09 18:58:38 by msamilog         ###   ########.fr       */
+/*   Created: 2023/07/13 18:49:18 by msamilog          #+#    #+#             */
+/*   Updated: 2023/07/13 18:49:18 by msamilog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_putnbr(int nbr)
+int	ft_putptr(void *ptr)
 {
-	static char	buffer[16];
-	int			i;
+	static char	buffer[32];
 	int			x;
-	long			num;
+	unsigned long		temp;
+	int			i;
 
-	i = 0;
+	temp = (unsigned long)ptr;
+	if (!temp)
+		return (write(1, "0x0", 3));
 	x = 0;
-	num = nbr;
-	if (num == 0)
-		return (write(1, "0", 1));
-	if (num < 0)
+	i = 0;
+	while (temp)
 	{
-		x += write(1, "-", 1);
-		num = -num;
+		buffer[i++] = "0123456789abcdef"[temp % 16];
+		temp = temp / 16;
 	}
-	while (num)
-	{
-		buffer[i++] = num % 10 + '0';
-		num /= 10;
-	}
+	x += write(1, "0x", 2);
 	while (i--)
 		x += write(1, &buffer[i], 1);
 	return (x);

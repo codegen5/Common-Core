@@ -1,4 +1,7 @@
-SRCS			= ft_printf.c
+SRCS			= ft_printf.c \
+			  ft_putnbr.c \
+			  ft_putdec.c \
+			  ft_putptr.c
 
 OBJS		= ${SRCS:.c=.o}
 
