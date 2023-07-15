@@ -6,7 +6,7 @@
 /*   By: msamilog <tahasamiloglu@gmail.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/13 11:28:55 by msamilog          #+#    #+#             */
-/*   Updated: 2023/07/13 15:02:59 by msamilog         ###   ########.fr       */
+/*   Updated: 2023/07/15 05:10:09 by msamilog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,40 +16,6 @@ static inline
 int	ft_putchar(char c)
 {
 	return (write(1, &c, 1));
-}
-
-static inline
-int	ft_putstr(char *str)
-{
-	int	i;
-
-	if (!str)
-		return (write(1, "(null)", 6));
-	i = 0;
-	while (str[i])
-		i += write(1, &str[i], 1);
-	return (i);
-}
-
-static inline
-int	ft_puthexa(unsigned int nbr, char *list)
-{
-	static char	buffer[16];
-	int			i;
-	int			x;
-
-	if (nbr == 0)
-		return (write(1, "0", 1));
-	i = 0;
-	x = 0;
-	while (nbr)
-	{
-		buffer[i++] = list[nbr % 16];
-		nbr /= 16;
-	}
-	while (i--)
-		x += write(1, &buffer[i], 1);
-	return (x);
 }
 
 static inline
@@ -64,7 +30,7 @@ int	ft_format(char c, va_list ap)
 	else if (c == 'd' || c == 'i')
 		return (ft_putnbr(va_arg(ap, int)));
 	else if (c == 'u')
-		return (ft_putdec(va_arg(ap, unsigned int)));
+		return (ft_putudec(va_arg(ap, unsigned int)));
 	else if (c == 'x')
 		return (ft_puthexa(va_arg(ap, unsigned int), "0123456789abcdef"));
 	else if (c == 'X')
@@ -85,9 +51,9 @@ int	ft_printf(const char *format, ...)
 	y = 0;
 	while (format[i])
 	{
-		if (format[i] == '%')
+		if (format[i] == '%' && format[i + 1])
 			y += ft_format(format[++i], ap);
-		else
+		else if (format[i] != '%')
 			y += write(1, &format[i], 1);
 		i++;
 	}
