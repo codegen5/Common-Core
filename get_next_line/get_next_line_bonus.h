@@ -1,18 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.c                                    :+:      :+:    :+:   */
+/*   get_next_line_bonus.h                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: msamilog <tahasamiloglu@gmail.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/07/16 00:30:42 by msamilog          #+#    #+#             */
-/*   Updated: 2023/07/16 00:30:43 by msamilog         ###   ########.fr       */
+/*   Created: 2023/07/16 00:30:40 by msamilog          #+#    #+#             */
+/*   Updated: 2023/07/16 00:30:41 by msamilog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#ifndef GET_NEXT_LINE_BONUS_H
+# define GET_NEXT_LINE_BONUS_H
 
-char	*get_next_line(int fd)
-{
-	
-}
+# ifndef BUFFER_SIZE
+# define BUFFER_SIZE 42
+# endif
+
+# include <fctnl.h>
+# include <stdlib.h>
+# include <unistd.h>
+
+char	*get_next_line_bonus(int fd);
+
+#endif
+
