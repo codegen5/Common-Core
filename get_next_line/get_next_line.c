@@ -6,27 +6,84 @@
 /*   By: msamilog <tahasamiloglu@gmail.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/16 00:30:42 by msamilog          #+#    #+#             */
-/*   Updated: 2023/07/17 06:21:13 by msamilog         ###   ########.fr       */
+/*   Updated: 2023/07/22 01:47:09 by msamilog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-char	*get_next_line(int fd)
+static inline
+char	*ft_buffer(int fd, char *buffer, char *remainder)
 {
-	static char	buffer[BUFFER_SIZE + 1];
-	
-	char	*line;
+	ssize_t	bytes_read;
+	char	*temp;
 
-	if (fd < 0 || BUFFER_SIZE <= 0 || read(fd, 0, 0))
-		return (NULL);
-	
+	bytes_read = 1;
+	while (bytes_read)
+	{
+		bytes_read = read(fd, buffer, BUFFER_SIZE);
+		if (bytes_read == -1)
+			return (NULL);
+		else if (!bytes_read)
+			break ;
+		buffer[bytes_read] = '\0';
+		if (!remainder)
+		{
+			remainder = (char *)malloc(sizeof(char));
+			*remainder = '\0';
+		}
+		temp = remainder;
+		remainder = ft_strjoin(temp, buffer);
+		free(temp);
+		temp = NULL;
+		if (ft_strchr(buffer, '\n'))
+			break ;
+	}
+	return (remainder);
 }
 
-int	main(void)
+static inline
+char	*trim_line(char *line)
 {
-	int	fd;
+	size_t	i;
+	char	*remainder;
 
-	fd = open("test.txt", O_RDONLY);
-	get_next_line(fd);
+	i = 0;
+	while (line[i] != '\n' && line[i])
+		i++;
+	if (line[i] == '\0' || line[1] == '\0')
+		return (NULL);
+	remainder = ft_substr(line, i + 1, ft_strlen(line) - i);
+	if (*remainder == '\0')
+	{
+		free(remainder);
+		remainder = NULL;
+	}
+	line[i + 1] = '\0';
+	return (remainder);
+}
+
+char	*get_next_line(int fd)
+{
+	char		*buffer;
+	char		*line;
+	static char	*remainder = NULL;
+
+	if (fd < 0 || BUFFER_SIZE <= 0 || read(fd, 0, 0) < 0)
+	{
+		if (remainder)
+			free(remainder);
+		remainder = NULL;
+		return (NULL);
+	}
+	buffer = (char *)malloc(sizeof(char) * (BUFFER_SIZE + 1));
+	if (!buffer)
+		return (NULL);
+	line = ft_buffer(fd, buffer, remainder);
+	free(buffer);
+	buffer = NULL;
+	if (!line)
+		return (NULL);
+	remainder = trim_line(line);
+	return (line);
 }

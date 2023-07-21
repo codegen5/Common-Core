@@ -6,7 +6,7 @@
 /*   By: msamilog <tahasamiloglu@gmail.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/16 00:30:40 by msamilog          #+#    #+#             */
-/*   Updated: 2023/07/17 06:03:34 by msamilog         ###   ########.fr       */
+/*   Updated: 2023/07/22 01:17:03 by msamilog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,18 @@ size_t	ft_strlen(const char *s)
 	while (s[i] != '\0')
 		i++;
 	return (i);
+}
+
+char	*ft_strchr(const char *s, int c)
+{
+	unsigned char	val;
+
+	val = c;
+	while (*s && val != *s)
+		s++;
+	if (val == *s)
+		return ((char *)s);
+	return (NULL);
 }
 
 char	*ft_substr(char const *s, unsigned int start, size_t len)
@@ -49,4 +61,28 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 		return (d);
 	}
 	return (NULL);
+}
+
+char	*ft_strjoin(char const *s1, char const *s2)
+{
+	char	*d;
+	size_t	i;
+	size_t	j;
+
+	d = (char *)malloc(sizeof(char) * (ft_strlen(s1) + ft_strlen(s2)) + 1);
+	if (!d)
+		return (NULL);
+	i = 0;
+	while (*(s1 + i))
+	{
+		*(d + i) = *(s1 + i);
+		i++;
+	}
+	j = 0;
+	while (*(s2 + j))
+	{
+		*(d + i + j) = *(s2 + j);
+		j++;
+	}
+	return (d);
 }
