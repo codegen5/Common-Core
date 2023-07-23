@@ -6,7 +6,7 @@
 /*   By: msamilog <tahasamiloglu@gmail.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/16 00:30:40 by msamilog          #+#    #+#             */
-/*   Updated: 2023/07/22 01:17:03 by msamilog         ###   ########.fr       */
+/*   Updated: 2023/07/23 07:53:50 by msamilog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,5 +84,6 @@ char	*ft_strjoin(char const *s1, char const *s2)
 		*(d + i + j) = *(s2 + j);
 		j++;
 	}
+	*(d + i + j) = '\0';
 	return (d);
 }

@@ -6,7 +6,7 @@
 /*   By: msamilog <tahasamiloglu@gmail.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/16 00:30:45 by msamilog          #+#    #+#             */
-/*   Updated: 2023/07/22 01:44:02 by msamilog         ###   ########.fr       */
+/*   Updated: 2023/07/23 07:53:46 by msamilog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@
 # endif
 
 # include <unistd.h>
-# include <fcntl.h>
 # include <stdlib.h>
 
 char	*get_next_line(int fd);
