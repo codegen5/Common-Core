@@ -6,7 +6,7 @@
 /*   By: msamilog <tahasamiloglu@gmail.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/16 00:30:42 by msamilog          #+#    #+#             */
-/*   Updated: 2023/07/23 07:53:47 by msamilog         ###   ########.fr       */
+/*   Updated: 2023/07/24 04:29:40 by msamilog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ static inline
 char	*ft_buffer(int fd, char *buffer, char *remainder)
 {
 	ssize_t	bytes_read;
-	char	*temp;
+	size_t	i;
 
 	bytes_read = 1;
 	while (bytes_read)
@@ -32,11 +32,11 @@ char	*ft_buffer(int fd, char *buffer, char *remainder)
 			remainder = (char *)malloc(sizeof(char));
 			*remainder = '\0';
 		}
-		temp = remainder;
-		remainder = ft_strjoin(temp, buffer);
-		free(temp);
-		temp = NULL;
-		if (ft_strchr(buffer, '\n'))
+		remainder = ft_strjoin(remainder, buffer);
+		i = 0;
+		while (buffer[i] && buffer[i] != '\n')
+			i++;
+		if (buffer[i] == '\n')
 			break ;
 	}
 	return (remainder);
@@ -51,7 +51,7 @@ char	*trim_line(char *line)
 	i = 0;
 	while (line[i] != '\n' && line[i])
 		i++;
-	if (line[i] == '\0' || line[1] == '\0')
+	if (line[i] == '\0')
 		return (NULL);
 	remainder = ft_substr(line, i + 1, ft_strlen(line) - i);
 	if (*remainder == '\0')

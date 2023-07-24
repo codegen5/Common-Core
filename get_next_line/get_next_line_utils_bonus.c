@@ -6,7 +6,7 @@
 /*   By: msamilog <tahasamiloglu@gmail.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/17 02:35:40 by msamilog          #+#    #+#             */
-/*   Updated: 2023/07/23 07:53:51 by msamilog         ###   ########.fr       */
+/*   Updated: 2023/07/24 04:59:26 by msamilog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,18 +20,6 @@ size_t	ft_strlen(const char *s)
 	while (s[i] != '\0')
 		i++;
 	return (i);
-}
-
-char	*ft_strchr(const char *s, int c)
-{
-	unsigned char	val;
-
-	val = c;
-	while (*s && val != *s)
-		s++;
-	if (val == *s)
-		return ((char *)s);
-	return (NULL);
 }
 
 char	*ft_substr(char const *s, unsigned int start, size_t len)
@@ -63,7 +51,7 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	return (NULL);
 }
 
-char	*ft_strjoin(char const *s1, char const *s2)
+char	*ft_strjoin(char *s1, char *s2)
 {
 	char	*d;
 	size_t	i;
@@ -85,5 +73,7 @@ char	*ft_strjoin(char const *s1, char const *s2)
 		j++;
 	}
 	*(d + i + j) = '\0';
+	free(s1);
+	s1 = NULL;
 	return (d);
 }
