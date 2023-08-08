@@ -12,6 +12,7 @@
 
 #include "minitalk.h"
 
+static inline
 void	ft_putpid(long nb)
 {
 	char	buffer[11];
