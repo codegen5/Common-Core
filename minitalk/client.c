@@ -6,26 +6,66 @@
 /*   By: msamilog <tahasamiloglu@gmail.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/04 23:51:29 by msamilog          #+#    #+#             */
-/*   Updated: 2023/08/07 23:22:32 by msamilog         ###   ########.fr       */
+/*   Updated: 2023/08/08 16:33:07 by msamilog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minitalk.h"
 #include <stdio.h>
 
-void	catch_int(int sig_num)
+int	ft_atoi(char *str)
 {
-	printf("Don't do that\n");
-	signal(SIGINT, SIG_IGN);
+	int	i;
+	int	sign;
+	int	result;
+
+	sign = 1;
+	result = 0;
+	i = 0;
+	while (str[i] == ' ' || (str[i] >= 9 && str[i] <= 13))
+		i++;
+	if (str[i] == '-' || str[i] == '+')
+	{
+		if (str[i] == '-')
+			sign *= -1;
+		i++;
+	}
+	while (str[i] >= '0' && str[i] <= '9')
+	{
+		result *= 10;
+		result = result + str[i] - '0';
+		i++;
+	}
+	return (result * sign);
+}
+
+void	ft_transmitter(pid_t pid, char c)
+{
+	char	bit;
+
+	bit = 0;
+	while (bit < 8)
+	{
+		if (1 & (c >> bit))
+			kill(pid, SIGUSR1);
+		else
+			kill(pid, SIGUSR2);
+		usleep(100);
+		bit++;
+	}
 }
 
 int	main(int argc, char **argv)
 {
+	pid_t	pid;
+	size_t	i;
+
 	if (argc == 3)
 	{
-		while (1)
-		{
-			
-		}
+		pid = ft_atoi(argv[1]);
+		i = 0;
+		while (argv[2][i])
+			ft_transmitter(pid, argv[2][i++]);
+		ft_transmitter(pid, '\0');
 	}
 }

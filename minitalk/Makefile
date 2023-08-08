@@ -9,13 +9,13 @@ SRCSS		= server.c
 OBJSC		= $(SRCSC:.c=.o)
 OBJSS		= $(SRCSS:.c=.o)
 
+all: $(NAMEC) $(NAMES)
+
 $(NAMEC): $(SRCSC)
 	$(CC) $(SRCSC) -o $(NAMEC) $(CFLAGS)
 
 $(NAMES): $(SRCSS)
 	$(CC) $(SRCSS) -o $(NAMES) $(CFLAGS)
-
-all: $(NAMEC) $(NAMES)
 
 clean:
 	$(RM) $(OBJSC) $(OBJSS)

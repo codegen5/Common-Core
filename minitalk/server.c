@@ -6,7 +6,7 @@
 /*   By: msamilog <tahasamiloglu@gmail.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/07 21:26:57 by msamilog          #+#    #+#             */
-/*   Updated: 2023/08/07 23:22:32 by msamilog         ###   ########.fr       */
+/*   Updated: 2023/08/08 16:41:55 by msamilog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,24 @@ void	ft_putpid(long nb)
 
 void	ft_receiver(int sig)
 {
-	
+	static char				bit = 0;
+	static unsigned char	c = 0;
+
+	if (sig == SIGUSR1)
+	{
+		c = c | (1 << bit);
+	}
+	else if (sig == SIGUSR2)
+	{
+		c = c & ~(1 << bit);
+	}
+	bit++;
+	if (bit == 8)
+	{
+		write(1, &c, 1);
+		c = 0;
+		bit = 0;
+	}
 }
 
 int	main(void)
