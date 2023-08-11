@@ -1,28 +1,38 @@
-NAMEC		= client
-NAMES		= server
+NAME		= client server
+B_NAME		= client_bonus server_bonus
 CC			= gcc
 CFLAGS		= -Wall -Wextra -Werror
 RM			= rm -rf
 
-SRCSC		= client.c
-SRCSS		= server.c
-OBJSC		= $(SRCSC:.c=.o)
-OBJSS		= $(SRCSS:.c=.o)
+SRCS		= client.c server.c
+B_SRCS		= client_bonus.c server_bonus.c
+OBJS		= $(SRCS:.c=.o)
+B_OBJS		= $(B_SRCS:c=.o)
 
-all: $(NAMEC) $(NAMES)
+all: $(NAME)
 
-$(NAMEC): $(SRCSC)
-	$(CC) $(SRCSC) -o $(NAMEC) $(CFLAGS)
+$(NAME): %: %.o
+	@echo "Linking $@"
+	@$(CC) $(CFLAGS) $< -o $@ 
 
-$(NAMES): $(SRCSS)
-	$(CC) $(SRCSS) -o $(NAMES) $(CFLAGS)
+%.o: %.c
+	@echo "Compiling $<"
+	@$(CC) $(CFLAGS) -c $< -o $@
+
+$(B_NAME): %_bonus: %_bonus.o
+	@echo "Linking $@"
+	@$(CC) $(CFLAGS) $< -o $@
+
+bonus: $(B_NAME)
 
 clean:
-	$(RM) $(OBJSC) $(OBJSS)
+	@echo "Cleaning up..."
+	@$(RM) $(OBJS) $(B_OBJS)
 
 fclean: clean
-	$(RM) $(NAMEC) $(NAMES)
+	@echo "Removing executables..."
+	@$(RM) $(NAME) $(B_NAME)
 
 re: fclean all
 
-.PHONY: all clean fclean re
+.PHONY: all clean fclean re bonus

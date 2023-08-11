@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   client.c                                           :+:      :+:    :+:   */
+/*   client_bonus.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: msamilog <tahasamiloglu@gmail.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -10,7 +10,9 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "minitalk.h"
+#include "minitalk_bonus.h"
+
+volatile sig_atomic_t	g_ack;
 
 static inline
 int	ft_atoi(char *str)
@@ -56,6 +58,12 @@ int	ft_checkpid(char *pid)
 	return (1);
 }
 
+void	ft_handshake(int sig)
+{
+	if (sig == SIGUSR1)
+		g_ack = 1;
+}
+
 static inline
 void	ft_transmitter(pid_t pid, char c)
 {
@@ -64,11 +72,13 @@ void	ft_transmitter(pid_t pid, char c)
 	bit = 0;
 	while (bit < 8)
 	{
+		g_ack = 0;
 		if (1 & (c >> bit))
 			kill(pid, SIGUSR1);
 		else
 			kill(pid, SIGUSR2);
-		usleep(100);
+		while (!g_ack)
+			pause();
 		bit++;
 	}
 }
@@ -86,6 +96,7 @@ int	main(int argc, char **argv)
 			write(1, "Invalid PID!\n", 13);
 			return (1);
 		}	
+		signal(SIGUSR1, ft_handshake);
 		i = 0;
 		while (argv[2][i])
 			ft_transmitter(pid, argv[2][i++]);
