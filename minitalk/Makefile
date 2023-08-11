@@ -7,7 +7,7 @@ RM			= rm -rf
 SRCS		= client.c server.c
 B_SRCS		= client_bonus.c server_bonus.c
 OBJS		= $(SRCS:.c=.o)
-B_OBJS		= $(B_SRCS:c=.o)
+B_OBJS		= $(B_SRCS:.c=.o)
 
 all: $(NAME)
 
