@@ -40,19 +40,14 @@ void	ft_putpid(long nb)
 	write(1, "\n", 1);
 }
 
+static inline
 void	ft_receiver(int sig)
 {
-	static char				bit = 0;
+	static unsigned char	bit = 0;
 	static unsigned char	c = 0;
 
 	if (sig == SIGUSR1)
-	{
 		c = c | (1 << bit);
-	}
-	else if (sig == SIGUSR2)
-	{
-		c = c & ~(1 << bit);
-	}
 	bit++;
 	if (bit == 8)
 	{

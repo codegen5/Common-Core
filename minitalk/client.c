@@ -11,7 +11,6 @@
 /* ************************************************************************** */
 
 #include "minitalk.h"
-#include <stdio.h>
 
 int	ft_atoi(char *str)
 {
@@ -39,9 +38,25 @@ int	ft_atoi(char *str)
 	return (result * sign);
 }
 
+int	ft_checkpid(char *pid)
+{
+	size_t	i;
+
+	i = 0;
+	if (pid[0] == '0')
+		return (0);
+	while (pid[i])
+	{
+		if (pid[i] < '0' || pid[i] > '9')
+			return (0);
+		i++;
+	}
+	return (1);
+}
+
 void	ft_transmitter(pid_t pid, char c)
 {
-	char	bit;
+	unsigned char	bit;
 
 	bit = 0;
 	while (bit < 8)
@@ -63,9 +78,20 @@ int	main(int argc, char **argv)
 	if (argc == 3)
 	{
 		pid = ft_atoi(argv[1]);
+		if (pid < 1 || !ft_checkpid(argv[1]))
+		{
+			write(1, "Invalid PID!\n", 13);
+			return (1);
+		}	
 		i = 0;
 		while (argv[2][i])
 			ft_transmitter(pid, argv[2][i++]);
 		ft_transmitter(pid, '\0');
 	}
+	else
+	{
+		write(1, "Usage: ./client PID \"string\"\n", 29);
+		return (1);
+	}
+	return (0);
 }
