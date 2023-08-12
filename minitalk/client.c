@@ -6,7 +6,7 @@
 /*   By: msamilog <tahasamiloglu@gmail.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/04 23:51:29 by msamilog          #+#    #+#             */
-/*   Updated: 2023/08/12 02:48:52 by msamilog         ###   ########.fr       */
+/*   Updated: 2023/08/08 16:33:07 by msamilog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,7 +85,7 @@ int	main(int argc, char **argv)
 		{
 			write(1, "Invalid PID!\n", 13);
 			return (1);
-		}
+		}	
 		i = 0;
 		while (argv[2][i])
 			ft_transmitter(pid, argv[2][i++]);

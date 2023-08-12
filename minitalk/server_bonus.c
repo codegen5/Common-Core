@@ -6,7 +6,7 @@
 /*   By: msamilog <tahasamiloglu@gmail.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/07 21:26:57 by msamilog          #+#    #+#             */
-/*   Updated: 2023/08/12 02:42:09 by msamilog         ###   ########.fr       */
+/*   Updated: 2023/08/08 16:41:55 by msamilog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,8 +50,6 @@ void	ft_receiver(int sig, siginfo_t *info, void *context)
 	kill(info->si_pid, SIGUSR1);
 	if (sig == SIGUSR1)
 		c = c | (1 << bit);
-	else if (sig == SIGUSR2)
-		c = c & ~(1 << bit);
 	bit++;
 	if (bit == 8)
 	{
