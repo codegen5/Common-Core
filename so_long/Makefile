@@ -1,38 +1,32 @@
-NAME		= so_long
-#B_NAME		= 
-CC			= gcc
-CFLAGS		= -Wall -Wextra -Werror
-RM			= rm -rf
+NAME = so_long
 
-SRC			= so_long.c
-#B_SRC		=
-OBJ			= $(SRC:.c=.o)
-#B_OBJ		=
+SRCS = controls.c controls2.c create_map.c free.c get_map.c get_next_line.c so_long_utils1.c so_long_utils2.c main.c move.c move1.c
 
-all: $(NAME)
+OBJS = $(SRCS:.c=.o)
 
-%.o: %.c
-	@echo "Compiling $<"
-	@$(CC) $(CFLAGS) -Imlx -c $< -o $@
+CC = gcc
 
-$(NAME): $(OBJ)
-	@echo "Linking $@"
-	@$(CC) $(OBJ) -Lminilibx -lmlx -framework OpenGL -framework AppKit -o $(NAME)
+MFLAGS = ./minilibx/libmlx.a
 
-#$(B_NAME): %_bonus: %_bonus.o
-#	@echo "Linking $@"
-#	@$(CC) $(CFLAGS) $< -o $@
+AFLAGS =  -Wall -Wextra -Werror 
 
-#bonus: $(B_NAME)
+RM = rm -rf
 
-clean:
-	@echo "Cleaning up..."
-	@$(RM) $(OBJ)
+all :$(MFLAGS) $(NAME)
 
-fclean: clean
-	@echo "Removing executables..."
-	@$(RM) $(NAME)
+$(MFLAGS):
+	make -C ./minilibx
 
-re: fclean all
+$(NAME): $(OBJS)
+	$(CC) $(OBJS) $(MFLAGS) $(AFLAGS) -framework OpenGL -framework AppKit -o $(NAME)
 
-.PHONY: all clean fclean re
+fclean : clean
+	rm -rf $(NAME)
+
+clean :
+	make clean -C ./minilibx
+	rm -rf $(OBJS)
+
+re : fclean all
+
+.PHONY : all fclean clean re
