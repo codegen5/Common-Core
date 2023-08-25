@@ -6,13 +6,13 @@
 /*   By: msamilog <tahasamiloglu@gmail.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/18 09:46:13 by msamilog          #+#    #+#             */
-/*   Updated: 2023/08/23 19:02:51 by msamilog         ###   ########.fr       */
+/*   Updated: 2023/08/23 19:56:00 by msamilog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-void	image_initilize(t_data *data)
+void	image_initialize(t_data *data)
 {
 	int	img_w;
 	int	img_h;

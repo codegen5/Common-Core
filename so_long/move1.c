@@ -6,7 +6,7 @@
 /*   By: msamilog <tahasamiloglu@gmail.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/18 09:46:13 by msamilog          #+#    #+#             */
-/*   Updated: 2023/08/23 18:07:05 by msamilog         ###   ########.fr       */
+/*   Updated: 2023/08/24 21:16:43 by msamilog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,13 +53,13 @@ int	handle_key_press(int keycode, t_data *data)
 	y = data->player_y;
 	if (keycode == 53)
 		ft_close_window(data);
-	if (keycode == 2 && ft_coordinat(x + 1, y, data))
+	if (keycode == 2 && ft_coordinate(x + 1, y, data))
 		ft_right(data, y, x);
-	else if (keycode == 0 && ft_coordinat(x - 1, y, data))
+	else if (keycode == 0 && ft_coordinate(x - 1, y, data))
 		ft_left(data, y, x);
-	else if (keycode == 1 && ft_coordinat(x, y + 1, data))
+	else if (keycode == 1 && ft_coordinate(x, y + 1, data))
 		ft_up(data, y, x);
-	else if (keycode == 13 && ft_coordinat(x, y - 1, data))
+	else if (keycode == 13 && ft_coordinate(x, y - 1, data))
 		ft_down(data, y, x);
 	image_to_screen(data);
 	return (0);

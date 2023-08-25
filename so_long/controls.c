@@ -6,7 +6,7 @@
 /*   By: msamilog <tahasamiloglu@gmail.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/18 09:46:13 by msamilog          #+#    #+#             */
-/*   Updated: 2023/08/23 18:06:26 by msamilog         ###   ########.fr       */
+/*   Updated: 2023/08/25 14:30:48 by msamilog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,16 +16,16 @@ void	is_rectangular(t_data *data)
 {
 	int	i;
 	int	line1_len;
-	int	lenght;
+	int	length;
 
-	lenght = 0;
+	length = 0;
 	i = 1;
 	line1_len = ft_strlen(data->map[0]);
 	data->map_x = line1_len;
 	while (data->map[i])
 	{
-		lenght = ft_strlen(data->map[i]);
-		if (lenght != line1_len)
+		length = ft_strlen(data->map[i]);
+		if (length != line1_len)
 			ft_error("Map is not rectangular", data);
 		i++;
 	}
@@ -36,18 +36,18 @@ void	is_rectangular(t_data *data)
 
 void	invalid_mapname(char *mapname, t_data *data)
 {
-	int	lenght;
+	int	length;
 	int	i;
 
 	i = 0;
-	lenght = ft_strlen(mapname);
-	if (mapname[lenght - 1] != 'r' || mapname[lenght - 2] != 'e' \
-			|| mapname[lenght - 3] != 'b' || mapname[lenght - 4] \
-			!= '.' || lenght <= 5)
+	length = ft_strlen(mapname);
+	if (mapname[length - 1] != 'r' || mapname[length - 2] != 'e' \
+			|| mapname[length - 3] != 'b' || mapname[length - 4] \
+			!= '.' || length <= 5)
 		ft_error("Error \ninvalid mapname", data);
-	while (mapname[lenght] != '/')
-		lenght--;
-	if (mapname[lenght + 1] == '.')
+	while (mapname[length] != '/')
+		length--;
+	if (mapname[length + 1] == '.')
 		ft_error("invalid mapname", data);
 }
 

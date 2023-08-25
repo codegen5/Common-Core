@@ -6,13 +6,13 @@
 /*   By: msamilog <tahasamiloglu@gmail.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/18 09:46:13 by msamilog          #+#    #+#             */
-/*   Updated: 2023/08/23 18:07:02 by msamilog         ###   ########.fr       */
+/*   Updated: 2023/08/23 19:55:44 by msamilog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-char	ft_coordinat(int x, int y, t_data *data)
+char	ft_coordinate(int x, int y, t_data *data)
 {
 	if (data->map[y][x] == 'C')
 	{

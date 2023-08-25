@@ -8,7 +8,7 @@ CC = gcc
 
 MFLAGS = ./minilibx/libmlx.a
 
-AFLAGS =  -Wall -Wextra -Werror 
+AFLAGS =  -Wall -Wextra -Werror
 
 RM = rm -rf
 

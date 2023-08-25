@@ -6,7 +6,7 @@
 /*   By: msamilog <tahasamiloglu@gmail.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/18 09:46:13 by msamilog          #+#    #+#             */
-/*   Updated: 2023/08/23 19:03:10 by msamilog         ###   ########.fr       */
+/*   Updated: 2023/08/25 14:38:32 by msamilog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,7 @@ void	ft_win_and_hook(t_data *data)
 		ft_error("Map doesn't fit to screen", data);
 	data->mlx_win = mlx_new_window(data->mlx, (data->map_x) * 64, \
 	(data->map_y) * 64, "./so_long");
-	image_initilize(data);
+	image_initialize(data);
 	image_to_screen(data);
 	mlx_hook(data->mlx_win, 2, 0, handle_key_press, data);
 	mlx_loop(data->mlx);

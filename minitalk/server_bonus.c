@@ -6,7 +6,7 @@
 /*   By: msamilog <tahasamiloglu@gmail.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/07 21:26:57 by msamilog          #+#    #+#             */
-/*   Updated: 2023/08/08 16:41:55 by msamilog         ###   ########.fr       */
+/*   Updated: 2023/08/12 04:56:08 by msamilog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,12 +47,13 @@ void	ft_receiver(int sig, siginfo_t *info, void *context)
 	static unsigned char	c = 0;
 
 	(void)context;
-	kill(info->si_pid, SIGUSR1);
 	if (sig == SIGUSR1)
 		c = c | (1 << bit);
 	bit++;
 	if (bit == 8)
 	{
+		if (!c)
+			kill(info->si_pid, SIGUSR2);
 		write(1, &c, 1);
 		c = 0;
 		bit = 0;
@@ -65,7 +66,7 @@ int	main(void)
 	struct sigaction	sa;
 
 	sa.sa_flags = SA_SIGINFO;
-	sa.sa_sigaction = ft_receiver;
+	sa.sa_sigaction = &ft_receiver;
 	sigemptyset(&sa.sa_mask);
 	pid = getpid();
 	ft_putpid(pid);

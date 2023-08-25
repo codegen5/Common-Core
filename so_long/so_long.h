@@ -6,7 +6,7 @@
 /*   By: msamilog <tahasamiloglu@gmail.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/18 09:46:13 by msamilog          #+#    #+#             */
-/*   Updated: 2023/08/23 19:04:13 by msamilog         ###   ########.fr       */
+/*   Updated: 2023/08/24 21:47:50 by msamilog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 
 # include "minilibx/mlx.h"
 # include <fcntl.h>
-# include <stdio.h>
 # include <stdlib.h>
 # include <unistd.h>
 
@@ -69,7 +68,7 @@ char		*ft_substr(char const *s, unsigned int start, size_t len);
 int			find_player(t_data *data, char find);
 void		is_rectangular(t_data *data);
 void		image_to_screen(t_data *data);
-void		image_initilize(t_data *data);
+void		image_initialize(t_data *data);
 void		ft_error(char *msg, t_data *data);
 char		*ft_itoa(int n);
 void		invalid_mapname(char *mapname, t_data *data);
@@ -77,7 +76,7 @@ void		wall_okk(t_data *data);
 int			another_coin(t_data *data);
 int			ft_close_window(t_data *data);
 void		step_counter(t_data *data);
-char		ft_coordinat(int x, int y, t_data *data);
+char		ft_coordinate(int x, int y, t_data *data);
 void		ft_exit(char *msg);
 void		ft_putstr(char *str);
 
