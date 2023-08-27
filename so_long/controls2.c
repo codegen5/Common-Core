@@ -6,7 +6,7 @@
 /*   By: msamilog <tahasamiloglu@gmail.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/18 09:46:13 by msamilog          #+#    #+#             */
-/*   Updated: 2023/08/23 19:03:10 by msamilog         ###   ########.fr       */
+/*   Updated: 2023/08/26 16:26:07 by msamilog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,9 +47,6 @@ int	find_player(t_data *data, char find)
 
 void	unvalid_map(t_data *data, int x, int y)
 {
-	int		i;
-
-	i = 0;
 	if (data->c_map[y][x] == 'E')
 	{
 		data->exit_valid = 1;

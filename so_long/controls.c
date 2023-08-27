@@ -6,7 +6,7 @@
 /*   By: msamilog <tahasamiloglu@gmail.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/18 09:46:13 by msamilog          #+#    #+#             */
-/*   Updated: 2023/08/25 14:30:48 by msamilog         ###   ########.fr       */
+/*   Updated: 2023/08/26 16:25:35 by msamilog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,9 +37,7 @@ void	is_rectangular(t_data *data)
 void	invalid_mapname(char *mapname, t_data *data)
 {
 	int	length;
-	int	i;
 
-	i = 0;
 	length = ft_strlen(mapname);
 	if (mapname[length - 1] != 'r' || mapname[length - 2] != 'e' \
 			|| mapname[length - 3] != 'b' || mapname[length - 4] \

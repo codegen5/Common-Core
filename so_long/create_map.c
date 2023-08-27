@@ -6,7 +6,7 @@
 /*   By: msamilog <tahasamiloglu@gmail.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/18 09:46:13 by msamilog          #+#    #+#             */
-/*   Updated: 2023/08/23 19:56:00 by msamilog         ###   ########.fr       */
+/*   Updated: 2023/08/27 15:33:37 by msamilog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,21 +26,23 @@ void	image_initialize(t_data *data)
 
 void	image_to_screen2(t_data *data, int y, int x)
 {
-	if (data->map[y][x] == 'P')
-		mlx_put_image_to_window(data->mlx, data->mlx_win, data->player, x * 64,
-			y * 64);
-	if (data->map[y][x] == 'E')
-		mlx_put_image_to_window(data->mlx, data->mlx_win, data->exit, x * 64, y
-			* 64);
 	if (data->map[y][x] == '1')
 		mlx_put_image_to_window(data->mlx, data->mlx_win, data->wall, x * 64, y
 			* 64);
-	if (data->map[y][x] == '0')
+	else
+	{
 		mlx_put_image_to_window(data->mlx, data->mlx_win, data->background, x
 			* 64, y * 64);
-	if (data->map[y][x] == 'C')
-		mlx_put_image_to_window(data->mlx, data->mlx_win, data->collectible, x
-			* 64, y * 64);
+		if (data->map[y][x] == 'P')
+			mlx_put_image_to_window(data->mlx, data->mlx_win, data->player,
+				x * 64, y * 64);
+		if (data->map[y][x] == 'C')
+			mlx_put_image_to_window(data->mlx, data->mlx_win, data->collectible,
+				x * 64, y * 64);
+		if (data->map[y][x] == 'E')
+			mlx_put_image_to_window(data->mlx, data->mlx_win, data->exit,
+				x * 64, y * 64);
+	}
 }
 
 void	image_to_screen(t_data *data)
