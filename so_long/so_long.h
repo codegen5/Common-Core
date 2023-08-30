@@ -6,7 +6,7 @@
 /*   By: msamilog <tahasamiloglu@gmail.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/18 09:46:13 by msamilog          #+#    #+#             */
-/*   Updated: 2023/08/24 21:47:50 by msamilog         ###   ########.fr       */
+/*   Updated: 2023/08/30 22:26:57 by msamilog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,8 @@
 # include <stdlib.h>
 # include <unistd.h>
 
-# define PL_XPM "./images/char.xpm"
+# define PL_R_XPM "./images/char_r.xpm"
+# define PL_L_XPM "./images/char_l.xpm"
 # define EX_XPM "./images/exit.xpm"
 # define C_XPM "./images/coin.xpm"
 # define WALL_XPM "./images/white.xpm"
@@ -28,7 +29,8 @@ typedef struct s_data
 {
 	void	*mlx;
 	void	*mlx_win;
-	void	*player;
+	void	*player_r;
+	void	*player_l;
 	void	*exit;
 	void	*wall;
 	void	*collectible;
@@ -41,8 +43,7 @@ typedef struct s_data
 	int		collectible_count_copy;
 	int		exit_valid;
 	int		player_collected;
-	int		img_x;
-	int		img_y;
+	int		p_right;
 	int		p_len;
 	int		e_len;
 	int		player_x;

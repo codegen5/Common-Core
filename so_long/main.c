@@ -6,20 +6,30 @@
 /*   By: msamilog <tahasamiloglu@gmail.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/18 09:46:13 by msamilog          #+#    #+#             */
-/*   Updated: 2023/08/30 21:15:42 by msamilog         ###   ########.fr       */
+/*   Updated: 2023/08/30 22:27:15 by msamilog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-void	ft_xpm_cont(t_data *data)
+void	ft_xpm_cont2(t_data *data)
 {
 	int	fd;
 
-	fd = open(PL_XPM, O_RDONLY);
+	fd = open(PL_R_XPM, O_RDONLY);
 	if (fd < 0)
 		ft_error("CAN'T OPEN XPM", data);
 	close(fd);
+	fd = open(PL_L_XPM, O_RDONLY);
+	if (fd < 0)
+		ft_error("CAN'T OPEN XPM", data);
+	close(fd);
+}
+
+void	ft_xpm_cont1(t_data *data)
+{
+	int	fd;
+
 	fd = open(EX_XPM, O_RDONLY);
 	if (fd < 0)
 		ft_error("CAN'T OPEN XPM", data);
@@ -52,7 +62,8 @@ void	ft_map(t_data *data, char *map)
 	is_rectangular(data);
 	wall_okk(data);
 	another_coin(data);
-	ft_xpm_cont(data);
+	ft_xpm_cont1(data);
+	ft_xpm_cont2(data);
 }
 
 void	ft_win_and_hook(t_data *data)
@@ -85,6 +96,7 @@ int	main(int ac, char **av)
 		data->col_count = 0;
 		data->player_collected = 0;
 		data->map_y_control = 0;
+		data->p_right = 1;
 		ft_map(data, av[1]);
 		step_counter(data);
 		ft_win_and_hook(data);

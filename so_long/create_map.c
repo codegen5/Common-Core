@@ -6,7 +6,7 @@
 /*   By: msamilog <tahasamiloglu@gmail.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/18 09:46:13 by msamilog          #+#    #+#             */
-/*   Updated: 2023/08/30 21:14:46 by msamilog         ###   ########.fr       */
+/*   Updated: 2023/08/30 22:30:02 by msamilog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,8 @@ void	image_initialize(t_data *data)
 	int	img_w;
 	int	img_h;
 
-	data->player = mlx_xpm_file_to_image(data->mlx, PL_XPM, &img_w, &img_h);
+	data->player_r = mlx_xpm_file_to_image(data->mlx, PL_R_XPM, &img_w, &img_h);
+	data->player_l = mlx_xpm_file_to_image(data->mlx, PL_L_XPM, &img_w, &img_h);
 	data->exit = mlx_xpm_file_to_image(data->mlx, EX_XPM, &img_w, &img_h);
 	data->wall = mlx_xpm_file_to_image(data->mlx, WALL_XPM, &img_w, &img_h);
 	data->collectible = mlx_xpm_file_to_image(data->mlx, C_XPM, &img_w, &img_h);
@@ -33,8 +34,11 @@ void	image_to_screen2(t_data *data, int y, int x)
 	{
 		mlx_put_image_to_window(data->mlx, data->mlx_win, data->background, x
 			* 64, y * 64);
-		if (data->map[y][x] == 'P')
-			mlx_put_image_to_window(data->mlx, data->mlx_win, data->player,
+		if (data->map[y][x] == 'P' && data->p_right)
+			mlx_put_image_to_window(data->mlx, data->mlx_win, data->player_r,
+				x * 64, y * 64);
+		if (data->map[y][x] == 'P' && !data->p_right)
+			mlx_put_image_to_window(data->mlx, data->mlx_win, data->player_l,
 				x * 64, y * 64);
 		if (data->map[y][x] == 'C')
 			mlx_put_image_to_window(data->mlx, data->mlx_win, data->collectible,
