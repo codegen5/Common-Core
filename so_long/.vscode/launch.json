@@ -1,0 +1,19 @@
+{
+  "configurations": [
+    {
+      "request": "launch",
+      "name": "Run selected program",
+      "program": "${fileDirname}/so_long",
+      "type": "lldb",
+      "cwd": "${fileDirname}",
+      "args": ["map/map3.ber"],
+      "preLaunchTask": "makelldb: selected file"
+    },
+    {
+      "request": "launch",
+      "name": "Run new target",
+      "type": "makelldb"
+    }
+  ],
+  "version": "0.2.0"
+}

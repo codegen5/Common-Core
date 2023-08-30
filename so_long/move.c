@@ -6,7 +6,7 @@
 /*   By: msamilog <tahasamiloglu@gmail.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/18 09:46:13 by msamilog          #+#    #+#             */
-/*   Updated: 2023/08/23 19:55:44 by msamilog         ###   ########.fr       */
+/*   Updated: 2023/08/30 21:18:03 by msamilog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,18 +34,11 @@ char	ft_coordinate(int x, int y, t_data *data)
 
 void	step_counter(t_data *data)
 {
-	int		i;
 	char	*str;
 
-	i = 0;
-	data->player_step++;
+	free(data->player_step_screen);
 	str = ft_itoa(data->player_step);
-	write(1, "STEP: ", 7);
-	while (str[i])
-	{
-		write(1, &str[i], 1);
-		i++;
-	}
-	write(1, "\n", 1);
+	data->player_step_screen = ft_strjoin("STEP: ", str);
 	free(str);
+	data->player_step++;
 }

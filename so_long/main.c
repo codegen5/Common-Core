@@ -6,7 +6,7 @@
 /*   By: msamilog <tahasamiloglu@gmail.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/18 09:46:13 by msamilog          #+#    #+#             */
-/*   Updated: 2023/08/25 14:38:32 by msamilog         ###   ########.fr       */
+/*   Updated: 2023/08/30 21:15:42 by msamilog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,6 +86,7 @@ int	main(int ac, char **av)
 		data->player_collected = 0;
 		data->map_y_control = 0;
 		ft_map(data, av[1]);
+		step_counter(data);
 		ft_win_and_hook(data);
 	}
 	else

@@ -6,7 +6,7 @@
 /*   By: msamilog <tahasamiloglu@gmail.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/18 09:46:13 by msamilog          #+#    #+#             */
-/*   Updated: 2023/08/27 15:33:37 by msamilog         ###   ########.fr       */
+/*   Updated: 2023/08/30 21:14:46 by msamilog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,8 @@ void	image_to_screen2(t_data *data, int y, int x)
 			mlx_put_image_to_window(data->mlx, data->mlx_win, data->exit,
 				x * 64, y * 64);
 	}
+	mlx_string_put(data->mlx, data->mlx_win, 20, 40, 0xFF10AB,
+		data->player_step_screen);
 }
 
 void	image_to_screen(t_data *data)
