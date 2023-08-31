@@ -4,12 +4,13 @@
       "type": "process",
       "command": "/usr/bin/env",
       "args": [
-        "CC=clang",
+        "CC=gcc",
         "CFLAGS=-g -Wall -Wextra -Werror",
-        "make"
+        "make",
+        "bonus"
       ],
       "options": {
-        "cwd": "${fileDirname}"
+        "cwd": "/Users/a41612/Desktop/Common-Core/so_long"
       },
       "group": {
         "kind": "build",

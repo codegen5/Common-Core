@@ -6,14 +6,14 @@
 /*   By: msamilog <tahasamiloglu@gmail.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/18 09:46:13 by msamilog          #+#    #+#             */
-/*   Updated: 2023/08/30 22:26:57 by msamilog         ###   ########.fr       */
+/*   Updated: 2023/08/31 17:16:36 by msamilog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef SO_LONG_H
 # define SO_LONG_H
 
-# include "minilibx/mlx.h"
+# include "../minilibx/mlx.h"
 # include <fcntl.h>
 # include <stdlib.h>
 # include <unistd.h>
@@ -22,7 +22,7 @@
 # define PL_L_XPM "./images/char_l.xpm"
 # define EX_XPM "./images/exit.xpm"
 # define C_XPM "./images/coin.xpm"
-# define WALL_XPM "./images/white.xpm"
+# define WALL_XPM "./images/wall.xpm"
 # define G_XPM "./images/ground.xpm"
 
 typedef struct s_data
@@ -39,20 +39,19 @@ typedef struct s_data
 	int		map_y;
 	char	**map;
 	char	**c_map;
-	int		col_count;
+	int		collectible_count;
 	int		collectible_count_copy;
 	int		exit_valid;
 	int		player_collected;
 	int		p_right;
-	int		p_len;
-	int		e_len;
+	int		p_count;
+	int		e_count;
 	int		player_x;
 	int		player_y;
 	int		exit_x;
 	int		exit_y;
 	int		player_step;
 	int		map_y_control;
-	char	*player_step_screen;
 }			t_data;
 
 void		image_to_screen(t_data *data);
@@ -73,7 +72,7 @@ void		image_initialize(t_data *data);
 void		ft_error(char *msg, t_data *data);
 char		*ft_itoa(int n);
 void		invalid_mapname(char *mapname, t_data *data);
-void		wall_okk(t_data *data);
+void		wall_ok(t_data *data);
 int			another_coin(t_data *data);
 int			ft_close_window(t_data *data);
 void		step_counter(t_data *data);

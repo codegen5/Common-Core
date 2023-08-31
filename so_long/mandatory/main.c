@@ -6,7 +6,7 @@
 /*   By: msamilog <tahasamiloglu@gmail.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/18 09:46:13 by msamilog          #+#    #+#             */
-/*   Updated: 2023/08/30 22:27:15 by msamilog         ###   ########.fr       */
+/*   Updated: 2023/08/31 11:20:12 by msamilog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,14 +53,14 @@ void	ft_map(t_data *data, char *map)
 	char	*str;
 
 	str = NULL;
-	data->p_len = 0;
-	data->e_len = 0;
+	data->p_count = 0;
+	data->e_count = 0;
 	get_map(data, map, str);
 	free(str);
 	invalid_mapname(map, data);
 	element_check(data);
 	is_rectangular(data);
-	wall_okk(data);
+	wall_ok(data);
 	another_coin(data);
 	ft_xpm_cont1(data);
 	ft_xpm_cont2(data);
@@ -93,12 +93,11 @@ int	main(int ac, char **av)
 			ft_exit("Couldn't allocate memory");
 		data->player_step = 0;
 		data->collectible_count_copy = 0;
-		data->col_count = 0;
+		data->collectible_count = 0;
 		data->player_collected = 0;
 		data->map_y_control = 0;
 		data->p_right = 1;
 		ft_map(data, av[1]);
-		step_counter(data);
 		ft_win_and_hook(data);
 	}
 	else

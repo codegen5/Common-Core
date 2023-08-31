@@ -6,7 +6,7 @@
 /*   By: msamilog <tahasamiloglu@gmail.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/18 09:46:13 by msamilog          #+#    #+#             */
-/*   Updated: 2023/08/30 21:18:03 by msamilog         ###   ########.fr       */
+/*   Updated: 2023/08/31 15:30:29 by msamilog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ char	ft_coordinate(int x, int y, t_data *data)
 	}
 	else if (data->map[y][x] == 'E')
 	{
-		if (data->player_collected == data->col_count)
+		if (data->player_collected == data->collectible_count)
 		{
 			step_counter(data);
 			ft_close_window(data);
@@ -34,11 +34,18 @@ char	ft_coordinate(int x, int y, t_data *data)
 
 void	step_counter(t_data *data)
 {
+	int		i;
 	char	*str;
 
-	free(data->player_step_screen);
-	str = ft_itoa(data->player_step);
-	data->player_step_screen = ft_strjoin("STEP: ", str);
-	free(str);
+	i = 0;
 	data->player_step++;
+	str = ft_itoa(data->player_step);
+	write(1, "STEP: ", 7);
+	while (str[i])
+	{
+		write(1, &str[i], 1);
+		i++;
+	}
+	write(1, "\n", 1);
+	free(str);
 }

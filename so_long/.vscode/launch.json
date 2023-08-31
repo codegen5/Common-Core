@@ -3,10 +3,10 @@
     {
       "request": "launch",
       "name": "Run selected program",
-      "program": "${fileDirname}/so_long",
+      "program": "/Users/a41612/Desktop/Common-Core/so_long/so_long_bonus",
       "type": "lldb",
-      "cwd": "${fileDirname}",
-      "args": ["map/map3.ber"],
+      "cwd": "/Users/a41612/Desktop/Common-Core/so_long",
+      "args": ["maps/map2_bonus.ber"],
       "preLaunchTask": "makelldb: selected file"
     },
     {

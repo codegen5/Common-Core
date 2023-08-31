@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   controls.c                                         :+:      :+:    :+:   */
+/*   controls_bonus.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: msamilog <tahasamiloglu@gmail.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/18 09:46:13 by msamilog          #+#    #+#             */
-/*   Updated: 2023/08/26 16:25:35 by msamilog         ###   ########.fr       */
+/*   Updated: 2023/08/31 17:35:34 by msamilog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "so_long_bonus.h"
 
 void	is_rectangular(t_data *data)
 {
@@ -51,8 +51,9 @@ void	invalid_mapname(char *mapname, t_data *data)
 
 void	element_check(t_data *data)
 {
-	int	i;
-	int	j;
+	int		i;
+	int		j;
+	char	c;
 
 	i = 0;
 	while (data->map[i])
@@ -60,25 +61,26 @@ void	element_check(t_data *data)
 		j = 0;
 		while (data->map[i][j])
 		{
-			if (data->map[i][j] == 'C')
-				data->col_count++;
-			if (data->map[i][j] == 'P')
-				data->p_len++;
-			if (data->map[i][j] == 'E')
-				data->e_len++;
-			if (data->map[i][j] != 'C' && data->map[i][j] != 'P' \
-			&& data->map[i][j] != '0' && data->map[i][j] != '1' \
-			&& data->map[i][j] != 'E')
+			c = data->map[i][j];
+			if (c == 'C')
+				data->collectible_count++;
+			if (c == 'P')
+				data->p_count++;
+			if (c == 'E')
+				data->e_count++;
+			if (c == 'F')
+				data->f_count++;
+			if (!(c == 'C' || c == 'P' || c == '0' || c == '1' || c == 'E' || c == 'F'))
 				ft_error("Invalid char", data);
 			j++;
 		}
 		i++;
 	}
-	if ((data->col_count < 1) || (data->p_len != 1) || (data->e_len != 1))
-		ft_error("There must be 1P, 1E and atleast 1C", data);
+	if ((data->collectible_count < 1) || (data->p_count != 1) || (data->e_count != 1) || (data->f_count != 1))
+		ft_error("There must be 1P, 1E, 1F and at least 1C", data);
 }
 
-void	wall_okk(t_data *data)
+void	wall_ok(t_data *data)
 {
 	int	x;
 	int	y;
