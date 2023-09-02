@@ -6,7 +6,7 @@
 /*   By: msamilog <tahasamiloglu@gmail.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/18 09:46:13 by msamilog          #+#    #+#             */
-/*   Updated: 2023/08/31 11:20:12 by msamilog         ###   ########.fr       */
+/*   Updated: 2023/09/02 14:17:12 by msamilog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,11 @@ char	ft_coordinate(int x, int y, t_data *data)
 			ft_close_window(data);
 		}
 		return (0);
+	}
+	else if (data->map[y][x] == 'F')
+	{
+		step_counter(data);
+		ft_close_window(data);
 	}
 	else if (data->map[y][x] == '1')
 		return (0);

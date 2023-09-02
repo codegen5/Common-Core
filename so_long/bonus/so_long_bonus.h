@@ -6,7 +6,7 @@
 /*   By: msamilog <tahasamiloglu@gmail.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/18 09:46:13 by msamilog          #+#    #+#             */
-/*   Updated: 2023/08/31 17:17:37 by msamilog         ###   ########.fr       */
+/*   Updated: 2023/09/02 14:54:07 by msamilog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include "../minilibx/mlx.h"
 # include <fcntl.h>
 # include <stdlib.h>
+# include <time.h>
 # include <unistd.h>
 
 # define PL_R_XPM "./images/char_r.xpm"
