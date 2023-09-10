@@ -6,7 +6,7 @@
 /*   By: msamilog <tahasamiloglu@gmail.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/18 09:46:13 by msamilog          #+#    #+#             */
-/*   Updated: 2023/09/02 14:59:01 by msamilog         ###   ########.fr       */
+/*   Updated: 2023/09/06 21:50:11 by msamilog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,6 +85,7 @@ void	ft_win_and_hook(t_data *data)
 	image_to_screen(data);
 	mlx_hook(data->mlx_win, 17, 0, ft_close_window, data);
 	mlx_hook(data->mlx_win, 2, 0, handle_key_press, data);
+	mlx_loop_hook(data->mlx, image_to_screen, data);
 	mlx_loop(data->mlx);
 }
 
