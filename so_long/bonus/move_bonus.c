@@ -6,13 +6,13 @@
 /*   By: msamilog <tahasamiloglu@gmail.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/18 09:46:13 by msamilog          #+#    #+#             */
-/*   Updated: 2023/09/08 19:54:25 by msamilog         ###   ########.fr       */
+/*   Updated: 2023/10/11 20:03:42 by msamilog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long_bonus.h"
 
-char	ft_coordinate(int x, int y, t_data *data)
+int	ft_coordinate(int x, int y, t_data *data)
 {
 	if (data->map[y][x] == 'C')
 	{
@@ -33,6 +33,17 @@ char	ft_coordinate(int x, int y, t_data *data)
 		ft_close_window(data);
 	}
 	else if (data->map[y][x] == '1')
+		return (0);
+	return (1);
+}
+
+int	ft_foe_coordinate(int x, int y, t_data *data)
+{
+	if (data->map[y][x] == 'E')
+		return (0);
+	else if (data->map[y][x] == 'P')
+		ft_close_window(data);
+	else if (data->map[y][x] == '1' || data->map[y][x] == 'C')
 		return (0);
 	return (1);
 }

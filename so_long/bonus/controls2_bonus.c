@@ -6,7 +6,7 @@
 /*   By: msamilog <tahasamiloglu@gmail.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/18 09:46:13 by msamilog          #+#    #+#             */
-/*   Updated: 2023/08/31 11:20:12 by msamilog         ###   ########.fr       */
+/*   Updated: 2023/10/11 19:42:25 by msamilog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,12 @@ void	e_finder(t_data *data, int i, int j)
 {
 	data->exit_x = j;
 	data->exit_y = i;
+}
+
+void	f_finder(t_data *data, int i, int j)
+{
+	data->foe_x = j;
+	data->foe_y = i;
 }
 
 int	find_player(t_data *data, char find)
@@ -36,6 +42,8 @@ int	find_player(t_data *data, char find)
 			}
 			if (data->map[i][j] == 'E')
 				e_finder(data, i, j);
+			else if (data->map[i][j] == 'F')
+				f_finder(data, i, j);
 			else if (data->c_map[i][j] == find || data->c_map[i][j] == find)
 				return (1);
 			j++;

@@ -3,9 +3,9 @@
     {
       "request": "launch",
       "name": "Run selected program",
-      "program": "/Users/a41612/Desktop/Common-Core/so_long/so_long_bonus",
+      "program": "/Users/msamilog/cc/so_long/so_long_bonus",
       "type": "lldb",
-      "cwd": "/Users/a41612/Desktop/Common-Core/so_long",
+      "cwd": "/Users/msamilog/cc/so_long",
       "args": ["maps/map2_bonus.ber"],
       "preLaunchTask": "makelldb: selected file"
     },

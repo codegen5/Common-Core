@@ -6,7 +6,7 @@
 /*   By: msamilog <tahasamiloglu@gmail.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/18 09:46:13 by msamilog          #+#    #+#             */
-/*   Updated: 2023/09/02 15:25:40 by msamilog         ###   ########.fr       */
+/*   Updated: 2023/10/11 19:31:05 by msamilog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,9 +84,10 @@ void		wall_ok(t_data *data);
 int			another_coin(t_data *data);
 int			ft_close_window(t_data *data);
 void		step_counter(t_data *data);
-char		ft_coordinate(int x, int y, t_data *data);
+int			ft_coordinate(int x, int y, t_data *data);
 void		ft_exit(char *msg);
 void		ft_putstr(char *str);
-int			game_update(t_data *data);
+int			foe_random_move(t_data *data);
+int			ft_foe_coordinate(int x, int y, t_data *data);
 
 #endif

@@ -6,7 +6,7 @@ SRCS = mandatory/controls.c mandatory/controls2.c mandatory/create_map.c mandato
 mandatory/so_long_utils1.c mandatory/so_long_utils2.c mandatory/main.c mandatory/move.c mandatory/move1.c
 
 B_SRCS = bonus/create_map_bonus.c bonus/main_bonus.c bonus/move_bonus.c bonus/controls_bonus.c bonus/controls2_bonus.c bonus/free_bonus.c \
-bonus/get_map_bonus.c bonus/get_next_line_bonus.c bonus/so_long_utils1_bonus.c bonus/so_long_utils2_bonus.c bonus/move1_bonus.c
+bonus/get_map_bonus.c bonus/get_next_line_bonus.c bonus/so_long_utils1_bonus.c bonus/so_long_utils2_bonus.c bonus/move1_bonus.c bonus/move_foe_bonus.c
 
 OBJS = $(SRCS:.c=.o)
 
