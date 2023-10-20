@@ -6,7 +6,7 @@
 /*   By: msamilog <tahasamiloglu@gmail.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/03 13:46:48 by msamilog          #+#    #+#             */
-/*   Updated: 2023/10/11 20:24:46 by msamilog         ###   ########.fr       */
+/*   Updated: 2023/10/19 15:38:25 by msamilog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,25 +40,28 @@ void ft_foe_down(t_data *data, int y, int x)
 	data->foe_y = y - 1;
 }
 
-int foe_random_move(t_data *data)
+int	foe_random_move(t_data *data)
 {
-	int num;
-	int x;
-	int y;
+	static int	timer = 0;
+	int			direction;
+	int			x;
+	int			y;
 
-	x = data->foe_x;
-	y = data->foe_y;
-	num = rand() % 4;
-	usleep(70000);
-	if (num == 0 && ft_foe_coordinate(x + 1, y, data))
-		ft_foe_right(data, y, x);
-	else if (num == 1 && ft_foe_coordinate(x - 1, y, data))
-		ft_foe_left(data, y, x);
-	else if (num == 2 && ft_foe_coordinate(x, y + 1, data))
-		ft_foe_up(data, y, x);
-	else if (num == 3 && ft_foe_coordinate(x, y - 1, data))
-		ft_foe_down(data, y, x);
-	image_to_screen(data);
-
+	if (timer++ > 1000)
+	{
+		x = data->foe_x;
+		y = data->foe_y;
+		direction = rand() % 4;
+		if (direction == 0 && ft_foe_coordinate(x + 1, y, data))
+			ft_foe_right(data, y, x);
+		else if (direction == 1 && ft_foe_coordinate(x - 1, y, data))
+			ft_foe_left(data, y, x);
+		else if (direction == 2 && ft_foe_coordinate(x, y + 1, data))
+			ft_foe_up(data, y, x);
+		else if (direction == 3 && ft_foe_coordinate(x, y - 1, data))
+			ft_foe_down(data, y, x);
+		image_to_screen(data);
+		timer = 0;
+	}
 	return (0);
 }

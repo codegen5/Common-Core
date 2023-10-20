@@ -6,7 +6,7 @@
 /*   By: msamilog <tahasamiloglu@gmail.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/18 09:46:13 by msamilog          #+#    #+#             */
-/*   Updated: 2023/10/11 20:03:42 by msamilog         ###   ########.fr       */
+/*   Updated: 2023/10/19 22:04:53 by msamilog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ int	ft_coordinate(int x, int y, t_data *data)
 	else if (data->map[y][x] == 'F')
 	{
 		step_counter(data);
+		ft_putstr("You lost!\n");
 		ft_close_window(data);
 	}
 	else if (data->map[y][x] == '1')
@@ -42,7 +43,10 @@ int	ft_foe_coordinate(int x, int y, t_data *data)
 	if (data->map[y][x] == 'E')
 		return (0);
 	else if (data->map[y][x] == 'P')
+	{
+		ft_putstr("You lost!\n");
 		ft_close_window(data);
+	}
 	else if (data->map[y][x] == '1' || data->map[y][x] == 'C')
 		return (0);
 	return (1);
