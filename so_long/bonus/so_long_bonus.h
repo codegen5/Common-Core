@@ -6,7 +6,7 @@
 /*   By: msamilog <tahasamiloglu@gmail.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/18 09:46:13 by msamilog          #+#    #+#             */
-/*   Updated: 2023/10/11 19:31:05 by msamilog         ###   ########.fr       */
+/*   Updated: 2023/10/23 15:59:27 by msamilog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,11 +22,13 @@
 # define PL_R_XPM "./images/char_r.xpm"
 # define PL_L_XPM "./images/char_l.xpm"
 # define EX_XPM "./images/exit.xpm"
+# define EX1_XPM "./images/exit1.xpm"
+# define EX2_XPM "./images/exit2.xpm"
+# define EX3_XPM "./images/exit3.xpm"
 # define C_XPM "./images/coin.xpm"
 # define WALL_XPM "./images/wall.xpm"
 # define G_XPM "./images/ground.xpm"
 # define FOE_XPM "./images/foe.xpm"
-
 
 typedef struct s_data
 {
@@ -36,6 +38,10 @@ typedef struct s_data
 	void	*player_l;
 	void	*foe;
 	void	*exit;
+	void	*exit1;
+	void	*exit2;
+	void	*exit3;
+	void	*exit4;
 	void	*wall;
 	void	*collectible;
 	void	*background;
@@ -72,6 +78,7 @@ char		*ft_strdup(char *s1);
 char		**ft_split(const char *s, char c);
 char		*ft_strjoin(char *s1, char *s2);
 void		element_check(t_data *data);
+void		element_check2(t_data *data, char c);
 char		*ft_substr(char const *s, unsigned int start, size_t len);
 int			find_player(t_data *data, char find);
 void		is_rectangular(t_data *data);
@@ -82,12 +89,13 @@ char		*ft_itoa(int n);
 void		invalid_mapname(char *mapname, t_data *data);
 void		wall_ok(t_data *data);
 int			another_coin(t_data *data);
-int			ft_close_window(t_data *data);
+int			ft_close_window(t_data *data, int stat);
 void		step_counter(t_data *data);
 int			ft_coordinate(int x, int y, t_data *data);
 void		ft_exit(char *msg);
 void		ft_putstr(char *str);
 int			foe_random_move(t_data *data);
 int			ft_foe_coordinate(int x, int y, t_data *data);
+void		animate_exit(t_data *data);
 
 #endif

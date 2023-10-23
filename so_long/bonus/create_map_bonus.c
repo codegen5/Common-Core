@@ -6,11 +6,33 @@
 /*   By: msamilog <tahasamiloglu@gmail.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/18 09:46:13 by msamilog          #+#    #+#             */
-/*   Updated: 2023/09/04 12:55:41 by msamilog         ###   ########.fr       */
+/*   Updated: 2023/10/23 15:29:07 by msamilog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long_bonus.h"
+
+void	animate_exit(t_data *data)
+{
+	static int	timer = 0;
+	int			img_w;
+	int			img_h;
+
+	if (timer++ > 18000)
+		timer = 0;
+	else if (timer > 15000)
+		data->exit = mlx_xpm_file_to_image(data->mlx, EX1_XPM, &img_w, &img_h);
+	else if (timer > 12000)
+		data->exit = mlx_xpm_file_to_image(data->mlx, EX2_XPM, &img_w, &img_h);
+	else if (timer > 9000)
+		data->exit = mlx_xpm_file_to_image(data->mlx, EX3_XPM, &img_w, &img_h);
+	else if (timer > 6000)
+		data->exit = mlx_xpm_file_to_image(data->mlx, EX2_XPM, &img_w, &img_h);
+	else if (timer > 3000)
+		data->exit = mlx_xpm_file_to_image(data->mlx, EX1_XPM, &img_w, &img_h);
+	else
+		data->exit = mlx_xpm_file_to_image(data->mlx, EX_XPM, &img_w, &img_h);
+}
 
 void	image_initialize(t_data *data)
 {

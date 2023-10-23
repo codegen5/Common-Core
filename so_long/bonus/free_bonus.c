@@ -6,7 +6,7 @@
 /*   By: msamilog <tahasamiloglu@gmail.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/18 09:46:13 by msamilog          #+#    #+#             */
-/*   Updated: 2023/09/02 14:24:49 by msamilog         ###   ########.fr       */
+/*   Updated: 2023/10/22 16:09:07 by msamilog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ void	ft_error(char *msg, t_data *data)
 	exit(1);
 }
 
-int	ft_close_window(t_data *data)
+int	ft_close_window(t_data *data, int stat)
 {
 	int	i;
 
@@ -58,5 +58,11 @@ int	ft_close_window(t_data *data)
 		i++;
 	}
 	free(data->map[i]);
+	if (stat == -1)
+		ft_putstr("Game closed\n");
+	else if (stat == 1)
+		ft_putstr("You win!\n");
+	else
+		ft_putstr("You lost!\n");
 	exit(0);
 }

@@ -6,7 +6,7 @@
 /*   By: msamilog <tahasamiloglu@gmail.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/18 09:46:13 by msamilog          #+#    #+#             */
-/*   Updated: 2023/08/31 17:16:36 by msamilog         ###   ########.fr       */
+/*   Updated: 2023/10/23 19:07:20 by msamilog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,6 +64,7 @@ char		*ft_strdup(char *s1);
 char		**ft_split(const char *s, char c);
 char		*ft_strjoin(char *s1, char *s2);
 void		element_check(t_data *data);
+void		element_check2(t_data *data, char c);
 char		*ft_substr(char const *s, unsigned int start, size_t len);
 int			find_player(t_data *data, char find);
 void		is_rectangular(t_data *data);

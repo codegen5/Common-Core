@@ -6,7 +6,7 @@
 /*   By: msamilog <tahasamiloglu@gmail.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/18 09:46:13 by msamilog          #+#    #+#             */
-/*   Updated: 2023/10/11 20:15:58 by msamilog         ###   ########.fr       */
+/*   Updated: 2023/10/23 15:59:19 by msamilog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,22 +62,28 @@ void	element_check(t_data *data)
 		while (data->map[i][j])
 		{
 			c = data->map[i][j];
-			if (c == 'C')
-				data->collectible_count++;
-			if (c == 'P')
-				data->p_count++;
-			if (c == 'E')
-				data->e_count++;
-			if (c == 'F')
-				data->f_count++;
-			if (!(c == 'C' || c == 'P' || c == '0' || c == '1' || c == 'E' || c == 'F'))
-				ft_error("Invalid char", data);
+			element_check2(data, c);
 			j++;
 		}
 		i++;
 	}
-	if ((data->collectible_count < 1) || (data->p_count != 1) || (data->e_count != 1) || (data->f_count != 1))
+	if ((data->collectible_count < 1) || (data->p_count != 1)
+		|| (data->e_count != 1) || (data->f_count != 1))
 		ft_error("There must be 1P, 1E, 1F and at least 1C", data);
+}
+
+void	element_check2(t_data *data, char c)
+{
+	if (c == 'C')
+		data->collectible_count++;
+	if (c == 'P')
+		data->p_count++;
+	if (c == 'E')
+		data->e_count++;
+	if (c == 'F')
+		data->f_count++;
+	if (!(c == 'C' || c == 'P' || c == '0' || c == '1' || c == 'E' || c == 'F'))
+		ft_error("Invalid char", data);
 }
 
 void	wall_ok(t_data *data)
