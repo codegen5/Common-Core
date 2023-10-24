@@ -6,7 +6,7 @@
 /*   By: msamilog <tahasamiloglu@gmail.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/18 09:46:13 by msamilog          #+#    #+#             */
-/*   Updated: 2023/10/23 03:12:10 by msamilog         ###   ########.fr       */
+/*   Updated: 2023/10/24 14:18:53 by msamilog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,15 +18,15 @@ void	ft_xpm_cont2(t_data *data)
 
 	fd = open(PL_R_XPM, O_RDONLY);
 	if (fd < 0)
-		ft_error("CAN'T OPEN XPM", data);
+		ft_error("CAN'T OPEN XPM!\n", data);
 	close(fd);
 	fd = open(PL_L_XPM, O_RDONLY);
 	if (fd < 0)
-		ft_error("CAN'T OPEN XPM", data);
+		ft_error("CAN'T OPEN XPM!\n", data);
 	close(fd);
 	fd = open(FOE_XPM, O_RDONLY);
 	if (fd < 0)
-		ft_error("CAN'T OPEN XPM", data);
+		ft_error("CAN'T OPEN XPM!\n", data);
 	close(fd);
 }
 
@@ -36,19 +36,19 @@ void	ft_xpm_cont1(t_data *data)
 
 	fd = open(EX_XPM, O_RDONLY);
 	if (fd < 0)
-		ft_error("CAN'T OPEN XPM", data);
+		ft_error("CAN'T OPEN XPM!\n", data);
 	close(fd);
 	fd = open(C_XPM, O_RDONLY);
 	if (fd < 0)
-		ft_error("CAN'T OPEN XPM", data);
+		ft_error("CAN'T OPEN XPM!\n", data);
 	close(fd);
 	fd = open(WALL_XPM, O_RDONLY);
 	if (fd < 0)
-		ft_error("CAN'T OPEN XPM", data);
+		ft_error("CAN'T OPEN XPM!\n", data);
 	close(fd);
 	fd = open(G_XPM, O_RDONLY);
 	if (fd < 0)
-		ft_error("CAN'T OPEN XPM", data);
+		ft_error("CAN'T OPEN XPM!\n", data);
 	close(fd);
 }
 
@@ -76,9 +76,9 @@ void	ft_win_and_hook(t_data *data)
 	data->mlx = mlx_init();
 	find_player(data, 'P');
 	if (data->map_y > 20)
-		ft_error("Map doesn't fit to screen", data);
+		ft_error("Map doesn't fit to screen!\n", data);
 	if (data->map_x > 40)
-		ft_error("Map doesn't fit to screen", data);
+		ft_error("Map doesn't fit to screen!\n", data);
 	data->mlx_win = mlx_new_window(data->mlx, (data->map_x) * 64, \
 	(data->map_y) * 64, "./so_long");
 	image_initialize(data);
@@ -98,7 +98,7 @@ int	main(int ac, char **av)
 		srand(time(NULL));
 		data = malloc(sizeof(t_data));
 		if (!data)
-			ft_exit("Couldn't allocate memory");
+			ft_exit("Couldn't allocate memory!\n");
 		data->player_step = 0;
 		data->collectible_count_copy = 0;
 		data->collectible_count = 0;
@@ -110,5 +110,5 @@ int	main(int ac, char **av)
 		ft_win_and_hook(data);
 	}
 	else
-		ft_exit("Invalid argument count");
+		ft_exit("Invalid argument count!\n");
 }

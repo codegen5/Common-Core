@@ -6,7 +6,7 @@
 /*   By: msamilog <tahasamiloglu@gmail.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/18 09:46:13 by msamilog          #+#    #+#             */
-/*   Updated: 2023/10/23 18:54:27 by msamilog         ###   ########.fr       */
+/*   Updated: 2023/10/24 14:16:51 by msamilog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,11 +26,11 @@ void	is_rectangular(t_data *data)
 	{
 		length = ft_strlen(data->map[i]);
 		if (length != line1_len)
-			ft_error("Map is not rectangular", data);
+			ft_error("Map is not rectangular!\n", data);
 		i++;
 	}
 	if (i != data->map_y_control)
-		ft_error("Map is not rectangular", data);
+		ft_error("Map is not rectangular!\n", data);
 	data->map_y = i;
 }
 
@@ -42,11 +42,11 @@ void	invalid_mapname(char *mapname, t_data *data)
 	if (mapname[length - 1] != 'r' || mapname[length - 2] != 'e' \
 			|| mapname[length - 3] != 'b' || mapname[length - 4] \
 			!= '.' || length <= 5)
-		ft_error("Error \ninvalid mapname", data);
+		ft_error("Invalid map name!\n", data);
 	while (mapname[length] != '/')
 		length--;
 	if (mapname[length + 1] == '.')
-		ft_error("invalid mapname", data);
+		ft_error("Invalid map name!\n", data);
 }
 
 void	element_check(t_data *data)
@@ -69,7 +69,7 @@ void	element_check(t_data *data)
 	}
 	if ((data->collectible_count < 1) || (data->p_count != 1)
 		|| (data->e_count != 1))
-		ft_error("There must be 1P, 1E and at least 1C", data);
+		ft_error("There must be 1P, 1E and at least 1C\n", data);
 }
 
 void	element_check2(t_data *data, char c)
@@ -81,7 +81,7 @@ void	element_check2(t_data *data, char c)
 	if (c == 'E')
 		data->e_count++;
 	if (!(c == 'C' || c == 'P' || c == '0' || c == '1' || c == 'E'))
-		ft_error("Invalid char\n", data);
+		ft_error("Invalid char!\n", data);
 }
 
 void	wall_ok(t_data *data)
@@ -94,13 +94,13 @@ void	wall_ok(t_data *data)
 	while (x < data->map_x)
 	{
 		if (data->map[0][x] != '1' || data->map[data->map_y - 1][x] != '1')
-			ft_error("map is not surrounded by walls", data);
+			ft_error("Map is not surrounded by walls!\n", data);
 		x++;
 	}
 	while (y < data->map_y)
 	{
 		if (data->map[y][0] != '1' || data->map[y][data->map_x - 1] != '1')
-			ft_error("map is not surrounded by walls", data);
+			ft_error("Map is not surrounded by walls!\n", data);
 		y++;
 	}
 }

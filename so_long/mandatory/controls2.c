@@ -6,7 +6,7 @@
 /*   By: msamilog <tahasamiloglu@gmail.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/18 09:46:13 by msamilog          #+#    #+#             */
-/*   Updated: 2023/08/31 15:30:02 by msamilog         ###   ########.fr       */
+/*   Updated: 2023/10/24 14:17:41 by msamilog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,9 +73,9 @@ int	another_coin(t_data *data)
 	find_player(data, 'P');
 	unvalid_map(data, data->player_x, data->player_y);
 	if (data->collectible_count_copy != data->collectible_count)
-		ft_error("Can't access to coin", data);
+		ft_error("Can't access to coin!\n", data);
 	if (!data->exit_valid)
-		ft_error("Can't access to exit", data);
+		ft_error("Can't access to exit!\n", data);
 	if (find_player(data, 'C') || find_player(data, 'E'))
 		return (1);
 	return (0);

@@ -6,7 +6,7 @@
 /*   By: msamilog <tahasamiloglu@gmail.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/03 13:46:48 by msamilog          #+#    #+#             */
-/*   Updated: 2023/10/23 15:29:03 by msamilog         ###   ########.fr       */
+/*   Updated: 2023/10/24 13:58:09 by msamilog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ int	foe_random_move(t_data *data)
 	int			y;
 
 	animate_exit(data);
-	if (timer++ > 1000)
+	if (timer++ > 300)
 	{
 		x = data->foe_x;
 		y = data->foe_y;
