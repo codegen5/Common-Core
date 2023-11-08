@@ -1,30 +1,34 @@
 NAME = push_swap
-
-SRCS = main.c check_error.c
-
-OBJS = $(SRCS:.c=.o)
-
+LIBDIR = libft/libft.a
 CC = gcc
 
 CFLAGS =  -Wall -Wextra -Werror
 
 RM = rm -rf
 
+SRCS = main.c check_error.c
+
+OBJS = $(SRCS:.c=.o)
+
 all : $(NAME)
 
-$(NAME): $(SRCS) $(LIBDIR)
-	$(CC) $(SRCS) $(LIBDIR) -o $(NAME) $(CFLAGS)
+$(NAME): $(OBJS) $(LIBDIR)
+	$(CC) $(CFLAGS) $(OBJS) $(LIBDIR) -o $(NAME)
+
+%.o: %.c push_swap.h
+	@$(CC) $(CFLAGS) -c $< -o $@
 
 $(LIBDIR):
 	@make -C libft/
-	@echo "compiled libft.a\n"
+	@echo "compiled libft.a"
 
 clean :
-	$(RM) $(OBJS) $(B_OBJS)
+	$(RM) $(OBJS)
 	@make clean -C libft/
 
 fclean : clean
 	$(RM) $(NAME)
+	@make fclean -C libft/
 
 re : fclean all
 

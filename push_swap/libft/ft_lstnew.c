@@ -6,13 +6,13 @@
 /*   By: msamilog <tahasamiloglu@gmail.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/10 12:23:53 by msamilog          #+#    #+#             */
-/*   Updated: 2023/07/10 12:23:53 by msamilog         ###   ########.fr       */
+/*   Updated: 2023/10/28 21:01:37 by msamilog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-t_list	*ft_lstnew(void *content)
+t_list	*ft_lstnew(int content)
 {
 	t_list	*result;
 

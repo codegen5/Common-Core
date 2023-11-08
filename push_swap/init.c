@@ -1,21 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstdelone.c                                     :+:      :+:    :+:   */
+/*   init.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: msamilog <tahasamiloglu@gmail.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/07/10 17:38:59 by msamilog          #+#    #+#             */
-/*   Updated: 2023/10/28 21:06:41 by msamilog         ###   ########.fr       */
+/*   Created: 2023/10/30 23:43:01 by msamilog          #+#    #+#             */
+/*   Updated: 2023/11/07 16:07:13 by msamilog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "push_swap.h"
 
-void	ft_lstdelone(t_list *lst, void (*del)(int))
+void	stack_init(int ac, char **av, t_list *lst)
 {
-	if (!lst)
-		return ;
-	del(lst->content);
-	free(lst);
+	
 }
