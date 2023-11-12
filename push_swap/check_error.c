@@ -6,27 +6,38 @@
 /*   By: msamilog <tahasamiloglu@gmail.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/25 16:38:26 by msamilog          #+#    #+#             */
-/*   Updated: 2023/10/30 23:52:20 by msamilog         ###   ########.fr       */
+/*   Updated: 2023/11/12 20:19:30 by msamilog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	check_duplicate(int ac, char **av, t_list *lst)
+int	check_duplicate(int ac, char **av, int count)
 {
-	stack_init(ac, av, lst);
-}
+	int	*num_array;
+	int	i;
+	int	j;
 
-size_t	count_strings(char **array)
-{
-	size_t	count;
-
-	count = 0;
-	while (array[count])
+	num_array = malloc(sizeof(int) * count);
+	if (!num_array)
+		exit (1);
+	convert_arg(ac, av, num_array);
+	i = 0;
+	while (i < count - 1)
 	{
-		count++;
+		j = i + 1;
+		while (j < count)
+		{
+			if (num_array[i] == num_array[j++])
+			{
+				free(num_array);
+				return (0);
+			}
+		}
+		i++;
 	}
-	return (count);
+	free(num_array);
+	return (1);
 }
 
 int	check_digit(char *number)
@@ -57,35 +68,37 @@ int	check_num(char **numbers)
 		return (0);
 	while (numbers[i])
 	{
-		if (!check_digit(numbers[i++]))
+		if (!check_digit(numbers[i]) || (check_digit(numbers[i])
+				&& !ft_atoint(numbers[i])))
 			return (0);
+		i++;
 	}
-	return (1);
+	return (i);
 }
 
-void	check_error(int ac, char **av, t_list *lst)
+void	check_error(int ac, char **av)
 {
 	int		i;
+	int		count;
+	int		result;
 	char	**numbers;
 
-	if (ac < 2)
-	{
-		ft_putstr_fd("Error!\n", 2);
-		exit (1);
-	}
 	i = 0;
+	count = 0;
 	while (++i < ac)
 	{
 		numbers = ft_split(av[i], ' ');
-		if (!check_num(numbers))
+		result = check_num(numbers);
+		if (!result)
 		{
-			ft_deallocate(numbers, count_strings(numbers));
+			free_strings(numbers);
 			ft_putstr_fd("Error!\n", 2);
 			exit (1);
 		}
-		ft_deallocate(numbers, count_strings(numbers));
+		count += result;
+		free_strings(numbers);
 	}
-	if (!check_duplicate(ac, av, lst))
+	if (!check_duplicate(ac, av, count))
 	{
 		ft_putstr_fd("Error!\n", 2);
 		exit (1);

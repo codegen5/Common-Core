@@ -6,7 +6,7 @@
 /*   By: msamilog <tahasamiloglu@gmail.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/25 16:37:12 by msamilog          #+#    #+#             */
-/*   Updated: 2023/10/30 23:50:18 by msamilog         ###   ########.fr       */
+/*   Updated: 2023/11/12 20:19:50 by msamilog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,8 @@
 
 int	main(int ac, char **av)
 {
-	t_list	*lst;
-
-	lst = malloc(sizeof(t_list));
-	check_error(ac, av, lst);
+	if (ac < 2)
+		exit (1);
+	check_error(ac, av);
 	return (0);
 }

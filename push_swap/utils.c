@@ -1,34 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   init.c                                             :+:      :+:    :+:   */
+/*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: msamilog <tahasamiloglu@gmail.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/30 23:43:01 by msamilog          #+#    #+#             */
-/*   Updated: 2023/11/12 18:59:37 by msamilog         ###   ########.fr       */
+/*   Created: 2023/11/12 19:30:48 by msamilog          #+#    #+#             */
+/*   Updated: 2023/11/12 19:50:09 by msamilog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	convert_arg(int ac, char **av, int *num_array)
+int	ft_atoint(char *str)
 {
 	int		i;
-	int		j;
-	int		k;
-	char	**numbers;
+	int		sign;
+	long	result;
 
+	sign = 1;
+	result = 0;
 	i = 0;
-	k = 0;
-	while (++i < ac)
+	while (str[i] == ' ' || (str[i] >= 9 && str[i] <= 13))
+		i++;
+	if (str[i] == '-' || str[i] == '+')
 	{
-		numbers = ft_split(av[i], ' ');
-		j = 0;
-		while (numbers[j])
-		{
-			num_array[k++] = ft_atoi(numbers[j++]);
-		}
-		free_strings(numbers);
+		if (str[i] == '-')
+			sign *= -1;
+		i++;
 	}
+	while (str[i] >= '0' && str[i] <= '9')
+	{
+		result *= 10;
+		result = result + str[i] - '0';
+		if ((result > 2147483647 && sign == 1)
+			|| (result > 2147483648 && sign == -1))
+			return (0);
+		i++;
+	}
+	return (result * sign);
 }

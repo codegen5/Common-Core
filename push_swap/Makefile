@@ -6,7 +6,7 @@ CFLAGS =  -Wall -Wextra -Werror
 
 RM = rm -rf
 
-SRCS = main.c check_error.c
+SRCS = main.c check_error.c init.c free.c utils.c
 
 OBJS = $(SRCS:.c=.o)
 

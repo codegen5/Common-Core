@@ -6,12 +6,13 @@
 /*   By: msamilog <tahasamiloglu@gmail.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/07 19:29:15 by msamilog          #+#    #+#             */
-/*   Updated: 2023/10/30 21:50:09 by msamilog         ###   ########.fr       */
+/*   Updated: 2023/07/07 19:29:15 by msamilog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
+static inline
 char	**ft_deallocate(char **result, size_t i)
 {
 	size_t	n;

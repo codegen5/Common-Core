@@ -1,34 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   init.c                                             :+:      :+:    :+:   */
+/*   free.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: msamilog <tahasamiloglu@gmail.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/30 23:43:01 by msamilog          #+#    #+#             */
-/*   Updated: 2023/11/12 18:59:37 by msamilog         ###   ########.fr       */
+/*   Created: 2023/11/12 16:13:33 by msamilog          #+#    #+#             */
+/*   Updated: 2023/11/12 16:13:51 by msamilog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	convert_arg(int ac, char **av, int *num_array)
+void	free_strings(char **strings)
 {
-	int		i;
-	int		j;
-	int		k;
-	char	**numbers;
+	size_t	count;
 
-	i = 0;
-	k = 0;
-	while (++i < ac)
+	count = 0;
+	while (strings[count])
 	{
-		numbers = ft_split(av[i], ' ');
-		j = 0;
-		while (numbers[j])
-		{
-			num_array[k++] = ft_atoi(numbers[j++]);
-		}
-		free_strings(numbers);
+		free(strings[count++]);
 	}
+	free(strings);
 }
