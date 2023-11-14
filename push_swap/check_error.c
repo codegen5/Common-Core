@@ -6,7 +6,7 @@
 /*   By: msamilog <tahasamiloglu@gmail.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/25 16:38:26 by msamilog          #+#    #+#             */
-/*   Updated: 2023/11/12 20:19:30 by msamilog         ###   ########.fr       */
+/*   Updated: 2023/11/13 14:36:14 by msamilog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,8 +68,8 @@ int	check_num(char **numbers)
 		return (0);
 	while (numbers[i])
 	{
-		if (!check_digit(numbers[i]) || (check_digit(numbers[i])
-				&& !ft_atoint(numbers[i])))
+		if (!check_digit(numbers[i]) || ((check_digit(numbers[i]) && \
+		!ft_atoint(numbers[i]) && ft_strncmp(numbers[i], "0", 1))))
 			return (0);
 		i++;
 	}
