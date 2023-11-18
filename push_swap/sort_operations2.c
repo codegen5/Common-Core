@@ -1,22 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstlast.c                                       :+:      :+:    :+:   */
+/*   sort_operations2.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: msamilog <tahasamiloglu@gmail.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/07/10 17:14:27 by msamilog          #+#    #+#             */
-/*   Updated: 2023/07/10 17:14:27 by msamilog         ###   ########.fr       */
+/*   Created: 2023/11/15 19:02:46 by msamilog          #+#    #+#             */
+/*   Updated: 2023/11/17 15:48:54 by msamilog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "push_swap.h"
 
-t_list	*ft_lstlast(t_list *lst)
+void	ra(t_stack *s)
 {
-	if (!lst)
-		return (NULL);
-	while (lst->next)
-		lst = lst->next;
-	return (lst);
+
+}
+
+void	rb(t_stack *s)
+{
+
+}
+
+void	rra(t_stack *s)
+{
+
 }
