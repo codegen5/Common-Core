@@ -6,38 +6,37 @@
 /*   By: msamilog <tahasamiloglu@gmail.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/25 16:38:26 by msamilog          #+#    #+#             */
-/*   Updated: 2023/11/13 14:36:14 by msamilog         ###   ########.fr       */
+/*   Updated: 2023/11/19 15:52:42 by msamilog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	check_duplicate(int ac, char **av, int count)
+int	check_duplicate(int ac, char **av, t_stack *s)
 {
-	int	*num_array;
 	int	i;
 	int	j;
 
-	num_array = malloc(sizeof(int) * count);
-	if (!num_array)
+	s->stack_a = malloc(sizeof(int) * (s->a_size + 1));
+	s->stack_b = malloc(sizeof(int) * (s->a_size + 1));
+	if (!(s->stack_a) || !(s->stack_b))
 		exit (1);
-	convert_arg(ac, av, num_array);
+	convert_arg(ac, av, s);
 	i = 0;
-	while (i < count - 1)
+	while (i < s->a_size - 1)
 	{
 		j = i + 1;
-		while (j < count)
+		while (j < s->a_size)
 		{
-			if (num_array[i] == num_array[j++])
+			if (s->stack_a[i] == s->stack_a[j++])
 			{
-				free(num_array);
-				return (0);
+				free(s->stack_a);
+				return (1);
 			}
 		}
 		i++;
 	}
-	free(num_array);
-	return (1);
+	return (0);
 }
 
 int	check_digit(char *number)
@@ -76,15 +75,13 @@ int	check_num(char **numbers)
 	return (i);
 }
 
-void	check_error(int ac, char **av)
+void	check_error(int ac, char **av, t_stack *s)
 {
 	int		i;
-	int		count;
 	int		result;
 	char	**numbers;
 
 	i = 0;
-	count = 0;
 	while (++i < ac)
 	{
 		numbers = ft_split(av[i], ' ');
@@ -95,10 +92,10 @@ void	check_error(int ac, char **av)
 			ft_putstr_fd("Error!\n", 2);
 			exit (1);
 		}
-		count += result;
+		s->a_size += result;
 		free_strings(numbers);
 	}
-	if (!check_duplicate(ac, av, count))
+	if (check_duplicate(ac, av, s))
 	{
 		ft_putstr_fd("Error!\n", 2);
 		exit (1);
