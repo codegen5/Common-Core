@@ -6,7 +6,7 @@
 /*   By: msamilog <tahasamiloglu@gmail.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/25 16:20:36 by msamilog          #+#    #+#             */
-/*   Updated: 2023/11/19 16:00:00 by msamilog         ###   ########.fr       */
+/*   Updated: 2023/11/20 20:13:21 by msamilog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,5 +38,8 @@ void	pb(t_stack *s);
 void	ra(t_stack *s);
 void	rb(t_stack *s);
 void	rr(t_stack *s);
+void	rra(t_stack *s);
+void	rrb(t_stack *s);
+void	rrr(t_stack *s);
 
 #endif
