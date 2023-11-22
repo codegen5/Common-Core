@@ -6,18 +6,18 @@
 /*   By: msamilog <tahasamiloglu@gmail.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/02 17:26:48 by msamilog          #+#    #+#             */
-/*   Updated: 2023/05/02 17:26:48 by msamilog         ###   ########.fr       */
+/*   Updated: 2023/11/22 13:49:05 by msamilog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
+int	ft_strlcat(char *dst, const char *src, int dstsize)
 {
-	size_t	i;
-	size_t	y;
-	size_t	len_d;
-	size_t	len_s;
+	int	i;
+	int	y;
+	int	len_d;
+	int	len_s;
 
 	len_d = ft_strlen(dst);
 	len_s = ft_strlen(src);

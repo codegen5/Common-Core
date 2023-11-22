@@ -6,7 +6,7 @@
 /*   By: msamilog <tahasamiloglu@gmail.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/25 16:38:26 by msamilog          #+#    #+#             */
-/*   Updated: 2023/11/19 15:52:42 by msamilog         ###   ########.fr       */
+/*   Updated: 2023/11/22 13:49:05 by msamilog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ int	check_duplicate(int ac, char **av, t_stack *s)
 
 int	check_digit(char *number)
 {
-	size_t	i;
+	int	i;
 
 	i = 0;
 	if (!number[i])
@@ -60,7 +60,7 @@ int	check_digit(char *number)
 
 int	check_num(char **numbers)
 {
-	size_t	i;
+	int	i;
 
 	i = 0;
 	if (!numbers[i])

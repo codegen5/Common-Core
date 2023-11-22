@@ -6,7 +6,7 @@
 /*   By: msamilog <tahasamiloglu@gmail.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/12 16:13:33 by msamilog          #+#    #+#             */
-/*   Updated: 2023/11/19 15:05:08 by msamilog         ###   ########.fr       */
+/*   Updated: 2023/11/22 13:49:05 by msamilog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	free_strings(char **strings)
 {
-	size_t	count;
+	int	count;
 
 	count = 0;
 	while (strings[count])

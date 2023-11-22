@@ -6,13 +6,13 @@
 /*   By: msamilog <tahasamiloglu@gmail.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/04 12:47:40 by msamilog          #+#    #+#             */
-/*   Updated: 2023/07/04 12:47:40 by msamilog         ###   ########.fr       */
+/*   Updated: 2023/11/22 13:49:05 by msamilog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_memcmp(const void *s1, const void *s2, size_t n)
+int	ft_memcmp(const void *s1, const void *s2, int n)
 {
 	const unsigned char	*p1;
 	const unsigned char	*p2;

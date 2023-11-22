@@ -6,7 +6,7 @@
 /*   By: msamilog <tahasamiloglu@gmail.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/08 21:07:43 by msamilog          #+#    #+#             */
-/*   Updated: 2023/07/08 21:07:43 by msamilog         ###   ########.fr       */
+/*   Updated: 2023/11/22 13:49:05 by msamilog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 static int	ft_inset(char c, char const *set)
 {
-	size_t	i;
+	int	i;
 
 	i = 0;
 	while (*(set + i))
@@ -25,8 +25,8 @@ static int	ft_inset(char c, char const *set)
 
 char	*ft_strtrim(char const *s1, char const *set)
 {
-	size_t	start;
-	size_t	end;
+	int	start;
+	int	end;
 
 	if (!s1 || !set)
 		return (NULL);

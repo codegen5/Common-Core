@@ -6,7 +6,7 @@
 /*   By: msamilog <tahasamiloglu@gmail.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/25 16:37:12 by msamilog          #+#    #+#             */
-/*   Updated: 2023/11/20 20:14:11 by msamilog         ###   ########.fr       */
+/*   Updated: 2023/11/22 16:01:50 by msamilog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,5 @@ int	main(int ac, char **av)
 	s->stack_b = NULL;
 	s->sorted = NULL;
 	check_error(ac, av, s);
-	sa(s);
 	return (0);
 }

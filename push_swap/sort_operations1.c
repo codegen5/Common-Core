@@ -6,7 +6,7 @@
 /*   By: msamilog <tahasamiloglu@gmail.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/15 19:02:43 by msamilog          #+#    #+#             */
-/*   Updated: 2023/11/20 20:17:12 by msamilog         ###   ########.fr       */
+/*   Updated: 2023/11/22 15:04:50 by msamilog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,25 +55,23 @@ void	pa(t_stack *s)
 {
 	int	i;
 
-	i = 0;
+	i = s->a_size;
 	if (s->b_size)
 	{
-		if (!(s->a_size))
+		while (i > 0)
 		{
-			s->stack_a[0] = s->stack_b[0];
-			s->a_size = 1;
+			s->stack_a[i] = s->stack_a[i - 1];
+			i--;
 		}
-		else
+		s->stack_a[0] = s->stack_b[0];
+		s->a_size++;
+		i = 0;
+		while (i < s->b_size - 1)
 		{
-			while (i++ < s->a_size)
-				s->stack_a[i] = s->stack_a[i - 1];
-			s->stack_a[0] = s->stack_b[0];
-			s->a_size++;
-			i = s->b_size;
-			while (i--)
-				s->stack_b[i] = s->stack_b[i + 1];
-			s->b_size--;
+			s->stack_b[i] = s->stack_b[i + 1];
+			i++;
 		}
+		s->b_size--;
 		write(1, "pa\n", 3);
 	}
 }
@@ -82,25 +80,23 @@ void	pb(t_stack *s)
 {
 	int	i;
 
-	i = 0;
+	i = s->b_size;
 	if (s->a_size)
 	{
-		if (!(s->b_size))
+		while (i > 0)
 		{
-			s->stack_b[0] = s->stack_a[0];
-			s->b_size = 1;
+			s->stack_b[i] = s->stack_b[i - 1];
+			i--;
 		}
-		else
+		s->stack_b[0] = s->stack_a[0];
+		s->b_size++;
+		i = 0;
+		while (i < s->a_size - 1)
 		{
-			while (i++ < s->b_size)
-				s->stack_b[i] = s->stack_b[i - 1];
-			s->stack_b[0] = s->stack_a[0];
-			s->b_size++;
-			i = s->a_size;
-			while (i--)
-				s->stack_a[i] = s->stack_a[i + 1];
-			s->a_size--;
+			s->stack_a[i] = s->stack_a[i + 1];
+			i++;
 		}
+		s->a_size--;
 		write(1, "pb\n", 3);
 	}
 }

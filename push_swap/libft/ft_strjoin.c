@@ -6,7 +6,7 @@
 /*   By: msamilog <tahasamiloglu@gmail.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/07 19:11:52 by msamilog          #+#    #+#             */
-/*   Updated: 2023/07/07 19:11:52 by msamilog         ###   ########.fr       */
+/*   Updated: 2023/11/22 13:49:05 by msamilog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,10 @@
 
 char	*ft_strjoin(char const *s1, char const *s2)
 {
-	size_t	size;
+	int	size;
 	char	*d;
-	size_t	i;
-	size_t	j;
+	int	i;
+	int	j;
 
 	if (!s1 || !s2)
 		return (NULL);

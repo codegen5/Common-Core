@@ -6,7 +6,7 @@
 /*   By: msamilog <tahasamiloglu@gmail.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/19 15:57:08 by msamilog          #+#    #+#             */
-/*   Updated: 2023/11/20 20:12:18 by msamilog         ###   ########.fr       */
+/*   Updated: 2023/11/22 15:58:09 by msamilog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,53 +14,65 @@
 
 void	rra(t_stack *s)
 {
-	size_t	i;
+	int	i;
 
-	i = 0;
+	i = s->a_size - 1;
 	if (s->a_size > 1)
 	{
 		s->stack_a[s->a_size] = s->stack_a[s->a_size - 1];
-		while (i + 1 < s->a_size)
-			s->stack_a[i + 1] = s->stack_a[i++];
+		while (i > 0)
+		{
+			s->stack_a[i] = s->stack_a[i - 1];
+			i--;
+		}
 		s->stack_a[0] = s->stack_a[s->a_size];
 	}
-	write(1, "rra\n", 3);
+	write(1, "rra\n", 4);
 }
 
 void	rrb(t_stack *s)
 {
-	size_t	i;
+	int	i;
 
-	i = 0;
+	i = s->b_size - 1;
 	if (s->b_size > 1)
 	{
 		s->stack_b[s->b_size] = s->stack_b[s->b_size - 1];
-		while (i + 1 < s->b_size)
-			s->stack_b[i + 1] = s->stack_b[i++];
-		s->stack_b[0] = s->stack_b[s->b_size];
+		while (i > 0)
+		{
+			s->stack_b[i] = s->stack_b[i - 1];
+			i--;
+		}
+		s->stack_b[0] = s->stack_b[s->a_size];
 	}
-	write(1, "rrb\n", 3);
+	write(1, "rrb\n", 4);
 }
 
 void	rrr(t_stack *s)
 {
-	size_t	i;
+	int	i;
 
-	i = 0;
+	i = s->a_size - 1;
 	if (s->a_size > 1)
 	{
 		s->stack_a[s->a_size] = s->stack_a[s->a_size - 1];
-		while (i + 1 < s->a_size)
-			s->stack_a[i + 1] = s->stack_a[i++];
+		while (i > 0)
+		{
+			s->stack_a[i] = s->stack_a[i - 1];
+			i--;
+		}
 		s->stack_a[0] = s->stack_a[s->a_size];
 	}
-	i = 0;
+	i = s->b_size - 1;
 	if (s->b_size > 1)
 	{
 		s->stack_b[s->b_size] = s->stack_b[s->b_size - 1];
-		while (i + 1 < s->b_size)
-			s->stack_b[i + 1] = s->stack_b[i++];
-		s->stack_b[0] = s->stack_b[s->b_size];
+		while (i > 0)
+		{
+			s->stack_b[i] = s->stack_b[i - 1];
+			i--;
+		}
+		s->stack_b[0] = s->stack_b[s->a_size];
 	}
-	write(1, "rrr\n", 3);
+	write(1, "rrr\n", 4);
 }
