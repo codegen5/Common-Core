@@ -6,11 +6,64 @@
 /*   By: msamilog <tahasamiloglu@gmail.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/12 19:30:48 by msamilog          #+#    #+#             */
-/*   Updated: 2023/11/12 19:50:09 by msamilog         ###   ########.fr       */
+/*   Updated: 2023/12/03 00:36:47 by msamilog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+void	bubble_sort(int *arr, size_t size)
+{
+	size_t	i;
+	size_t	j;
+	int		temp;
+
+	i = 0;
+	while (i < size)
+	{
+		j = 0;
+		while (j + i + 1 < size)
+		{
+			if (arr[j] > arr[j + 1])
+			{
+				temp = arr[j];
+				arr[j] = arr[j + 1];
+				arr[j + 1] = temp;
+			}
+			j++;
+		}
+		i++;
+	}
+}
+
+int	find_highest(t_stack *s)
+{
+	int	max;
+	int	i;
+
+	i = 0;
+	max = s->stack_a[i];
+	while (++i < s->a_size)
+	{
+		if (s->stack_a[i] > max)
+			max = s->stack_a[i];
+	}
+	return (max);
+}
+
+int	is_sorted(int *arr, size_t size)
+{
+	size_t	i;
+
+	i = 0;
+	while (i < size - 1)
+	{
+		if (arr[i] > arr[i + 1])
+			return (0);
+		i++;
+	}
+	return (1);
+}
 
 int	ft_atoint(char *str)
 {

@@ -2,11 +2,11 @@ NAME = push_swap
 LIBDIR = libft/libft.a
 CC = gcc
 
-CFLAGS =  -Wall -Wextra -Werror
+CFLAGS = -g -Wall -Wextra -Werror
 
 RM = rm -rf
 
-SRCS = main.c check_error.c init.c free.c utils.c sort_operations1.c sort_operations2.c sort_operations3.c
+SRCS = main.c check_error.c init.c free.c utils.c stack_operations.c sort_operations1.c sort_operations2.c sort_operations3.c
 
 OBJS = $(SRCS:.c=.o)
 
