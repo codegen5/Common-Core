@@ -6,13 +6,13 @@
 /*   By: msamilog <tahasamiloglu@gmail.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/12 19:30:48 by msamilog          #+#    #+#             */
-/*   Updated: 2023/12/03 00:36:47 by msamilog         ###   ########.fr       */
+/*   Updated: 2023/12/07 01:59:58 by msamilog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	bubble_sort(int *arr, size_t size)
+void	bubble_sort_inv(int *arr, size_t size)
 {
 	size_t	i;
 	size_t	j;
@@ -24,7 +24,7 @@ void	bubble_sort(int *arr, size_t size)
 		j = 0;
 		while (j + i + 1 < size)
 		{
-			if (arr[j] > arr[j + 1])
+			if (arr[j] < arr[j + 1])
 			{
 				temp = arr[j];
 				arr[j] = arr[j + 1];
@@ -36,19 +36,48 @@ void	bubble_sort(int *arr, size_t size)
 	}
 }
 
-int	find_highest(t_stack *s)
+int	is_b_min_max(t_stack *s, int num)
+{
+	int	lowest;
+	int	highest;
+	int	i;
+
+	if (s->b_size > 1)
+	{
+		lowest = s->stack_b[0];
+		highest = s->stack_b[0];
+		i = 0;
+		while (++i < s->b_size)
+		{
+			if (s->stack_b[i] > highest)
+				highest = s->stack_b[i];
+			else if (s->stack_b[i] < lowest)
+				lowest = s->stack_b[i];
+		}
+		return (num < lowest || num > highest);
+	}
+	return (1);
+}
+
+int	find_index_highest(int *arr, int size)
 {
 	int	max;
 	int	i;
+	int	y;
 
 	i = 0;
-	max = s->stack_a[i];
-	while (++i < s->a_size)
+	y = 0;
+	max = arr[i];
+	while (++i < size)
 	{
-		if (s->stack_a[i] > max)
-			max = s->stack_a[i];
+		if (arr[i] > max)
+		{
+			max = arr[i];
+			y = i;
+
+		}
 	}
-	return (max);
+	return (y);
 }
 
 int	is_sorted(int *arr, size_t size)

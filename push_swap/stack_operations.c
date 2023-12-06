@@ -6,52 +6,44 @@
 /*   By: msamilog <tahasamiloglu@gmail.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/26 22:32:33 by msamilog          #+#    #+#             */
-/*   Updated: 2023/12/03 00:51:20 by msamilog         ###   ########.fr       */
+/*   Updated: 2023/12/07 02:06:14 by msamilog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	find_next(t_stack *s, int j)
+void	rotate_b(t_stack *s, int r)
+{
+	while (r-- > 0)
+		rb(s);
+	while (r-- < 0)
+		rrb(s);
+}
+
+void	push_minus_3(t_stack *s)
 {
 	int	i;
 
 	i = 0;
-	while (i < s->a_size)
+	while (s->a_size > 3)
 	{
-		if (s->index[j] == s->stack_a[i])
+		if (s->stack_a[++i] < s->index_a[2])
 		{
-			if (s->a_size - i > i)
-				return (i);
+			if (is_b_min_max(s, s->stack_a[i]))
+				rotate_b(s, max_num_stack_b(s));
 			else
-				return (-(s->a_size - i));
+				rotate_b(s, find_rot_b(s, s->stack_a[i]));
+			pb(s);
+		}
+		else
+		{
+			if ((is_b_min_max(s, s->stack_a[i + 1]) && max_num_stack_b(s) > 0)
+				|| (!is_b_min_max(s, s->stack_a[i + 1])
+					&& find_rot_b(s, s->stack_a[i + 1]) > 0))
+				rr(s);
+			else
+				ra(s);
 		}
 		i++;
 	}
-	return (0);
-}
-
-void	push_pull(t_stack *s)
-{
-	int	i;
-	int	j;
-
-	j = 0;
-	while (s->a_size > 1)
-	{
-		i = find_next(s, j++);
-		while (i > 0)
-		{
-			ra(s);
-			i--;
-		}
-		while (i < 0)
-		{
-			rra(s);
-			i++;
-		}
-		pb(s);
-	}
-	while (s->b_size)
-		pa(s);
 }
