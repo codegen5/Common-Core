@@ -6,7 +6,7 @@
 /*   By: msamilog <tahasamiloglu@gmail.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/25 16:20:36 by msamilog          #+#    #+#             */
-/*   Updated: 2023/12/07 04:57:52 by msamilog         ###   ########.fr       */
+/*   Updated: 2023/12/07 05:03:46 by msamilog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ void	convert_arg(int ac, char **av, t_stack *s);
 void	push_minus_3(t_stack *s);
 int		max_num_stack_b(t_stack *s);
 void	rotate_b(t_stack *s, int r);
-void	three_sort(t_stack *s);
+void	tiny_sort(t_stack *s);
 void	final_push(t_stack *s);
 
 int		find_index_highest(int *arr, int size);

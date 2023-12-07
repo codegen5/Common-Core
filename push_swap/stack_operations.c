@@ -6,7 +6,7 @@
 /*   By: msamilog <tahasamiloglu@gmail.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/26 22:32:33 by msamilog          #+#    #+#             */
-/*   Updated: 2023/12/07 04:56:19 by msamilog         ###   ########.fr       */
+/*   Updated: 2023/12/07 05:03:46 by msamilog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,11 +18,11 @@ void	final_push(t_stack *s)
 		pa(s);
 }
 
-void	three_sort(t_stack *s)
+void	tiny_sort(t_stack *s)
 {
 	int	i;
 
-	i = find_index_highest(s->stack_a, 3);
+	i = find_index_highest(s->stack_a, s->a_size);
 	if (i == 0)
 		ra(s);
 	else if (i == 1)
