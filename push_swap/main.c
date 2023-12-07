@@ -6,7 +6,7 @@
 /*   By: msamilog <tahasamiloglu@gmail.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/25 16:37:12 by msamilog          #+#    #+#             */
-/*   Updated: 2023/12/06 22:32:04 by msamilog         ###   ########.fr       */
+/*   Updated: 2023/12/07 04:56:31 by msamilog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,18 @@ int	main(int ac, char **av)
 		if (s->a_size > 3)
 		{
 			push_minus_3(s);
+			if (is_sorted(s->stack_a, s->a_size))
+				rotate_b(s, max_num_stack_b(s));
+			else
+			{
+				if (threesort_rot_moves(s) > 0 && max_num_stack_b > 0)
+					rr(s);
+				else if (threesort_rot_moves(s) < 0 && max_num_stack_b < 0)
+					rrr(s);
+				three_sort(s);
+				rotate_b(s, max_num_stack_b(s));
+			}
+			final_push(s);
 		}
 	}
 	return (0);

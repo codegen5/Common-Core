@@ -6,7 +6,7 @@
 /*   By: msamilog <tahasamiloglu@gmail.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/25 16:20:36 by msamilog          #+#    #+#             */
-/*   Updated: 2023/12/07 01:56:37 by msamilog         ###   ########.fr       */
+/*   Updated: 2023/12/07 04:57:52 by msamilog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@
 # include <unistd.h>
 # include <stdlib.h>
 # include "libft/libft.h"
-# include <stdio.h>
 
 typedef struct s_stack
 {
@@ -31,6 +30,9 @@ void	check_error(int ac, char **av, t_stack *s);
 void	convert_arg(int ac, char **av, t_stack *s);
 void	push_minus_3(t_stack *s);
 int		max_num_stack_b(t_stack *s);
+void	rotate_b(t_stack *s, int r);
+void	three_sort(t_stack *s);
+void	final_push(t_stack *s);
 
 int		find_index_highest(int *arr, int size);
 void	free_strings(char **strings);
@@ -38,8 +40,9 @@ int		is_sorted(int *arr, size_t size);
 void	bubble_sort_inv(int *arr, size_t size);
 int		is_b_min_max(t_stack *s, int num);
 int		find_rot_b(t_stack *s, int num);
-void	rotate_b(t_stack *s, int r);
+int		threesort_rot_moves(t_stack *s);
 int		ft_atoint(char *str);
+int		ft_abs(int n);
 
 void	sa(t_stack *s);
 void	sb(t_stack *s);

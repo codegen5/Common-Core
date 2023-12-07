@@ -6,7 +6,7 @@
 /*   By: msamilog <tahasamiloglu@gmail.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/25 16:38:26 by msamilog          #+#    #+#             */
-/*   Updated: 2023/11/30 17:36:34 by msamilog         ###   ########.fr       */
+/*   Updated: 2023/12/07 04:57:21 by msamilog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,7 +89,7 @@ void	check_error(int ac, char **av, t_stack *s)
 		if (!result)
 		{
 			free_strings(numbers);
-			ft_putstr_fd("Error!\n", 2);
+			ft_putstr_fd("Error\n", 2);
 			exit (1);
 		}
 		s->a_size += result;
@@ -97,7 +97,7 @@ void	check_error(int ac, char **av, t_stack *s)
 	}
 	if (check_duplicate(ac, av, s))
 	{
-		ft_putstr_fd("Error!\n", 2);
+		ft_putstr_fd("Error\n", 2);
 		exit (1);
 	}
 }
