@@ -6,7 +6,7 @@
 /*   By: msamilog <tahasamiloglu@gmail.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/25 16:20:36 by msamilog          #+#    #+#             */
-/*   Updated: 2023/12/07 05:03:46 by msamilog         ###   ########.fr       */
+/*   Updated: 2023/12/08 01:33:21 by msamilog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ typedef struct s_stack
 	int		*index_a;
 	int		a_size;
 	int		b_size;	
-}t_stack;
+}	t_stack;
 
 void	check_error(int ac, char **av, t_stack *s);
 void	convert_arg(int ac, char **av, t_stack *s);

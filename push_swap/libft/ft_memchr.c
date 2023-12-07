@@ -6,13 +6,13 @@
 /*   By: msamilog <tahasamiloglu@gmail.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/04 12:28:41 by msamilog          #+#    #+#             */
-/*   Updated: 2023/11/22 13:49:05 by msamilog         ###   ########.fr       */
+/*   Updated: 2023/07/04 12:28:41 by msamilog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memchr(const void *s, int c, int n)
+void	*ft_memchr(const void *s, int c, size_t n)
 {
 	const unsigned char	*p;
 	unsigned char		val;

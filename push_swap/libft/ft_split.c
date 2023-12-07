@@ -6,16 +6,16 @@
 /*   By: msamilog <tahasamiloglu@gmail.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/07 19:29:15 by msamilog          #+#    #+#             */
-/*   Updated: 2023/11/22 13:49:05 by msamilog         ###   ########.fr       */
+/*   Updated: 2023/07/07 19:29:15 by msamilog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
 static inline
-char	**ft_deallocate(char **result, int i)
+char	**ft_deallocate(char **result, size_t i)
 {
-	int	n;
+	size_t	n;
 
 	n = 0;
 	while (n < i)
@@ -27,8 +27,8 @@ char	**ft_deallocate(char **result, int i)
 static inline
 char	*ft_get_word(const char *s, char c, int word_count)
 {
-	static int	i = 0;
-	static int	j = 0;
+	static size_t	i = 0;
+	static size_t	j = 0;
 	char			*result;
 
 	while (s[i] && s[i] == c)
@@ -53,8 +53,8 @@ char	*ft_get_word(const char *s, char c, int word_count)
 static inline
 int	ft_count_words(char const *s, char c)
 {
-	int	y;
-	int	word_count;
+	size_t	y;
+	size_t	word_count;
 	int		is_word;
 
 	is_word = 0;
@@ -79,8 +79,8 @@ int	ft_count_words(char const *s, char c)
 char	**ft_split(char const *s, char c)
 {
 	char	**result;
-	int	word_count;
-	int	i;
+	size_t	word_count;
+	size_t	i;
 
 	if (!s)
 		return (NULL);

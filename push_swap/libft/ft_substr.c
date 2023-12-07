@@ -6,16 +6,16 @@
 /*   By: msamilog <tahasamiloglu@gmail.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/07 18:06:33 by msamilog          #+#    #+#             */
-/*   Updated: 2023/11/22 13:53:56 by msamilog         ###   ########.fr       */
+/*   Updated: 2023/07/07 18:06:33 by msamilog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_substr(char const *s, int start, int len)
+char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
-	int			i;
-	char		*d;
+	size_t			i;
+	char			*d;
 
 	if (ft_strlen(s) < start)
 	{

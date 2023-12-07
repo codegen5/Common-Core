@@ -6,15 +6,15 @@
 /*   By: msamilog <tahasamiloglu@gmail.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 17:26:48 by msamilog          #+#    #+#             */
-/*   Updated: 2023/11/22 13:49:05 by msamilog         ###   ########.fr       */
+/*   Updated: 2023/05/16 17:26:48 by msamilog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memset(void *b, int c, int len)
+void	*ft_memset(void *b, int c, size_t len)
 {
-	int			i;
+	size_t			i;
 	unsigned char	*p;
 	unsigned char	val;
 

@@ -6,15 +6,15 @@
 /*   By: msamilog <tahasamiloglu@gmail.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/03 03:48:53 by msamilog          #+#    #+#             */
-/*   Updated: 2023/11/22 13:49:05 by msamilog         ###   ########.fr       */
+/*   Updated: 2023/05/03 10:17:53 by msamilog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_strlcpy(char *dst, const char *src, int dstsize)
+size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize)
 {
-	int	i;
+	size_t	i;
 
 	i = 0;
 	if (dstsize)

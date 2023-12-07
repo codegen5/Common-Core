@@ -6,7 +6,7 @@
 /*   By: msamilog <tahasamiloglu@gmail.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/30 23:43:01 by msamilog          #+#    #+#             */
-/*   Updated: 2023/11/30 17:38:05 by msamilog         ###   ########.fr       */
+/*   Updated: 2023/12/08 01:33:45 by msamilog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,5 +30,3 @@ void	convert_arg(int ac, char **av, t_stack *s)
 		free_strings(numbers);
 	}
 }
-
-

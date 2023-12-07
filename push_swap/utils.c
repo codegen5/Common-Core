@@ -6,7 +6,7 @@
 /*   By: msamilog <tahasamiloglu@gmail.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/12 19:30:48 by msamilog          #+#    #+#             */
-/*   Updated: 2023/12/07 03:07:22 by msamilog         ###   ########.fr       */
+/*   Updated: 2023/12/08 01:04:02 by msamilog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,7 +74,6 @@ int	find_index_highest(int *arr, int size)
 		{
 			max = arr[i];
 			y = i;
-
 		}
 		i++;
 	}

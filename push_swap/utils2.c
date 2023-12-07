@@ -6,7 +6,7 @@
 /*   By: msamilog <tahasamiloglu@gmail.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/06 18:51:22 by msamilog          #+#    #+#             */
-/*   Updated: 2023/12/07 04:54:05 by msamilog         ###   ########.fr       */
+/*   Updated: 2023/12/08 01:18:30 by msamilog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,12 +80,12 @@ int	find_rot_b(t_stack *s, int num)
 		if (s->b_size - n < n)
 			return (-(s->b_size - n - 1));
 		else
-			return (n);
+			return (n + 1);
 	}
 	else
 	{
 		if (s->b_size - p < p)
-			return (-(s->b_size - p - 1));
+			return (-(s->b_size - p));
 		else
 			return (p);
 	}

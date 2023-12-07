@@ -6,16 +6,16 @@
 /*   By: msamilog <tahasamiloglu@gmail.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/04 13:52:47 by msamilog          #+#    #+#             */
-/*   Updated: 2023/11/22 13:49:05 by msamilog         ###   ########.fr       */
+/*   Updated: 2023/07/04 13:52:47 by msamilog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_calloc(int count, int size)
+void	*ft_calloc(size_t count, size_t size)
 {
 	void	*p;
-	int	total;
+	size_t	total;
 
 	total = count * size;
 	if (count == 0 || size == 0)
