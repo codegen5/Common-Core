@@ -6,7 +6,7 @@
 /*   By: msamilog <tahasamiloglu@gmail.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/25 16:38:26 by msamilog          #+#    #+#             */
-/*   Updated: 2023/12/07 04:57:21 by msamilog         ###   ########.fr       */
+/*   Updated: 2023/12/08 10:14:24 by msamilog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,7 @@ int	check_duplicate(int ac, char **av, t_stack *s)
 	int	i;
 	int	j;
 
-	s->stack_a = malloc(sizeof(int) * (s->a_size + 1));
-	s->stack_b = malloc(sizeof(int) * (s->a_size + 1));
-	if (!(s->stack_a) || !(s->stack_b))
-		exit (1);
+	ft_init(s);
 	convert_arg(ac, av, s);
 	i = 0;
 	while (i < s->a_size - 1)
@@ -29,10 +26,7 @@ int	check_duplicate(int ac, char **av, t_stack *s)
 		while (j < s->a_size)
 		{
 			if (s->stack_a[i] == s->stack_a[j++])
-			{
-				free(s->stack_a);
 				return (1);
-			}
 		}
 		i++;
 	}
@@ -97,6 +91,7 @@ void	check_error(int ac, char **av, t_stack *s)
 	}
 	if (check_duplicate(ac, av, s))
 	{
+		free_all(s);
 		ft_putstr_fd("Error\n", 2);
 		exit (1);
 	}

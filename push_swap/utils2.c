@@ -6,19 +6,11 @@
 /*   By: msamilog <tahasamiloglu@gmail.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/06 18:51:22 by msamilog          #+#    #+#             */
-/*   Updated: 2023/12/08 01:18:30 by msamilog         ###   ########.fr       */
+/*   Updated: 2023/12/08 11:21:37 by msamilog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-int	ft_abs(int n)
-{
-	if (n < 0)
-		return (-n);
-	else
-		return (n);
-}
 
 int	threesort_rot_moves(t_stack *s)
 {
@@ -44,38 +36,60 @@ int	max_num_stack_b(t_stack *s)
 		return (i);
 }
 
-int	find_rot_b(t_stack *s, int num)
+int	find_pos_low(t_stack *s, int num, int *p)
 {
 	int	i;
-	int	p;
-	int	n;
-	int	pos_lowest;
-	int	neg_lowest;
+	int	pos_low;
 
 	i = 0;
-	pos_lowest = 2147483647;
-	neg_lowest = -2147483648;
+	pos_low = 2147483647;
 	while (i < s->b_size)
 	{
 		if (num - s->stack_b[i] > 0)
 		{
-			if (num - s->stack_b[i] < pos_lowest)
+			if (num - s->stack_b[i] < pos_low)
 			{
-				pos_lowest = num - s->stack_b[i];
-				p = i;
-			}
-		}
-		else
-		{
-			if (num - s->stack_b[i] > neg_lowest)
-			{
-				neg_lowest = num - s->stack_b[i];
-				n = i;
+				pos_low = num - s->stack_b[i];
+				*p = i;
 			}
 		}
 		i++;
 	}
-	if (ft_abs(neg_lowest) < pos_lowest)
+	return (pos_low);
+}
+
+int	find_neg_low(t_stack *s, int num, int *n)
+{
+	int	i;
+	int	neg_low;
+
+	i = 0;
+	neg_low = -2147483648;
+	while (i < s->b_size)
+	{
+		if (num - s->stack_b[i] < 0)
+		{
+			if (num - s->stack_b[i] > neg_low)
+			{
+				neg_low = num - s->stack_b[i];
+				*n = i;
+			}
+		}
+		i++;
+	}
+	return (neg_low);
+}
+
+int	find_rot_b(t_stack *s, int num)
+{
+	int	p;
+	int	n;
+	int	pos_low;
+	int	neg_low;
+
+	pos_low = find_pos_low(s, num, &p);
+	neg_low = find_neg_low(s, num, &n);
+	if (ft_abs(neg_low) < pos_low)
 	{
 		if (s->b_size - n < n)
 			return (-(s->b_size - n - 1));

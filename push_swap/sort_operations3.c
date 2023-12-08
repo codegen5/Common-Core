@@ -6,7 +6,7 @@
 /*   By: msamilog <tahasamiloglu@gmail.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/19 15:57:08 by msamilog          #+#    #+#             */
-/*   Updated: 2023/12/08 01:17:04 by msamilog         ###   ########.fr       */
+/*   Updated: 2023/12/08 15:40:58 by msamilog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,7 @@ void	rrr(t_stack *s)
 			s->stack_b[i] = s->stack_b[i - 1];
 			i--;
 		}
-		s->stack_b[0] = s->stack_b[s->a_size];
+		s->stack_b[0] = s->stack_b[s->b_size];
 	}
 	write(1, "rrr\n", 4);
 }
